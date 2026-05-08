@@ -1,0 +1,126 @@
+---
+import { MapPin, Phone, Mail, Clock } from '@lucide/astro';
+---
+
+<footer id="contact" class="bg-navy text-white">
+  <!-- Contact Form + Info -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+      <!-- Left: Form -->
+      <div>
+        <h2 class="font-display text-3xl lg:text-4xl text-white mb-2 tracking-wide">Let's Build Together</h2>
+        <p class="text-textgray text-sm tracking-wide mb-10 uppercase">Ready to start your custom home journey?</p>
+
+        <form class="flex flex-col gap-5" onsubmit="handleSubmit(event)">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <input
+              type="text"
+              placeholder="FIRST NAME"
+              class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
+            />
+            <input
+              type="text"
+              placeholder="LAST NAME"
+              class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
+            />
+          </div>
+          <input
+            type="email"
+            placeholder="EMAIL ADDRESS"
+            class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
+          />
+          <input
+            type="tel"
+            placeholder="PHONE NUMBER"
+            class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
+          />
+          <textarea
+            rows="4"
+            placeholder="TELL US ABOUT YOUR PROJECT"
+            class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors resize-none"
+          ></textarea>
+          <button type="submit" class="btn-gold self-start mt-2">
+            SEND MESSAGE
+          </button>
+        </form>
+        <p id="form-success" class="hidden text-gold text-sm mt-4 tracking-wide">Thank you — we'll be in touch shortly.</p>
+      </div>
+
+      <!-- Right: Info + Map -->
+      <div>
+        <h3 class="font-display text-2xl text-white mb-8 tracking-wide">Visit Our Showhome</h3>
+
+        <!-- Google Map -->
+        <div class="w-full h-64 lg:h-72 mb-8 border border-white/10 overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80498.19647980947!2d-114.20724097156696!3d51.02647890055411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53717a6a4e5c7d4f%3A0x53d2b57e8a09b2c6!2sEdgemont%2C%20Calgary%2C%20AB!5e0!3m2!1sen!2sca!4v1712520000000!5m2!1sen!2sca"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="grayscale contrast-100 opacity-80"
+          ></iframe>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="flex items-start gap-3">
+            <MapPin class="w-4 h-4 text-gold mt-1 shrink-0" />
+            <div>
+              <p class="text-xs tracking-[0.15em] uppercase text-white/60 mb-1">ADDRESS</p>
+              <p class="text-sm text-white">Edgemont, Calgary AB</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <Phone class="w-4 h-4 text-gold mt-1 shrink-0" />
+            <div>
+              <p class="text-xs tracking-[0.15em] uppercase text-white/60 mb-1">PHONE</p>
+              <p class="text-sm text-white">(403) 555-0192</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <Mail class="w-4 h-4 text-gold mt-1 shrink-0" />
+            <div>
+              <p class="text-xs tracking-[0.15em] uppercase text-white/60 mb-1">EMAIL</p>
+              <p class="text-sm text-white">info@b2build.ca</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <Clock class="w-4 h-4 text-gold mt-1 shrink-0" />
+            <div>
+              <p class="text-xs tracking-[0.15em] uppercase text-white/60 mb-1">SHOWINGS</p>
+              <p class="text-sm text-white">By Appointment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-white/40 tracking-[0.15em] uppercase">
+        &copy; 2026 B2 BUILD LTD. ALL RIGHTS RESERVED.
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="/" class="text-xs text-white/40 tracking-[0.15em] uppercase hover:text-gold transition-colors">HOME</a>
+        <a href="/about" class="text-xs text-white/40 tracking-[0.15em] uppercase hover:text-gold transition-colors">ABOUT</a>
+        <a href="/services" class="text-xs text-white/40 tracking-[0.15em] uppercase hover:text-gold transition-colors">SERVICES</a>
+        <a href="/portfolio" class="text-xs text-white/40 tracking-[0.15em] uppercase hover:text-gold transition-colors">PORTFOLIO</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e: Event) {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const success = document.getElementById('form-success');
+    form.style.display = 'none';
+    if (success) success.classList.remove('hidden');
+  }
+</script>

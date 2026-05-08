@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { Home, RefreshCw, Compass, BarChart2, Sofa } from '@lucide/astro';
+
+const services = [
+  {
+    title: 'Custom Home Building',
+    description: 'From lot selection to final keys, we build bespoke luxury homes tailored to your vision, lifestyle, and budget. Every detail is crafted with precision and care.',
+    icon: Home,
+  },
+  {
+    title: 'Home Renovations',
+    description: 'Transform your existing home into something extraordinary. Our renovation projects range from whole-home transformations to targeted kitchen and bathroom upgrades.',
+    icon: RefreshCw,
+  },
+  {
+    title: 'Design & Planning',
+    description: 'Our in-house design team works with you to develop floor plans, material selections, and finishes that bring your vision to life — before a single nail is driven.',
+    icon: Compass,
+  },
+  {
+    title: 'Project Management',
+    description: 'We handle every aspect of your build or renovation with transparent scheduling, budget management, and clear communication from start to finish.',
+    icon: BarChart2,
+  },
+  {
+    title: 'Interior Finishing',
+    description: 'The finishing details define a home. We offer expert interior finishing services including millwork, custom cabinetry, tiling, painting, and smart home integration.',
+    icon: Sofa,
+  },
+];
+---
+
+<Layout
+  title="Services — B2 Build Ltd | Custom Home Building Calgary"
+  description="B2 Build Ltd services include custom home building, home renovations, design and planning, project management, and interior finishing in Calgary."
+>
+  <Header />
+
+  <!-- PAGE HERO -->
+  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85"
+      alt="B2 Build services"
+      class="absolute inset-0 w-full h-full object-cover opacity-30"
+    />
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">WHAT WE DO</p>
+      <h1 class="font-display text-3xl lg:text-5xl text-white">
+        OUR SERVICES
+      </h1>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-16 bg-offwhite">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <SectionHeading
+        eyebrow="THE FULL SPECTRUM"
+        title="From Vision to Keys"
+        subtitle="B2 Build Ltd offers a comprehensive suite of services for homeowners building, buying, or renovating in Calgary's inner-city market. From the first sketch to the final walkthrough, we're with you every step of the way."
+      />
+    </div>
+  </section>
+
+  <!-- 5-COLUMN GRID -->
+  <section class="py-16 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {services.map((service) => (
+          <ServiceCard title={service.title} description={service.description} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="py-20 bg-white border-y border-navy/10">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <SectionHeading
+        eyebrow="OUR PROCESS"
+        title="How We Work With You"
+        centered
+      />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        {[
+          { step: '01', title: 'Consultation', desc: 'We start with a conversation about your vision, budget, and timeline.' },
+          { step: '02', title: 'Design', desc: 'Our team develops detailed plans and material selections for your approval.' },
+          { step: '03', title: 'Build', desc: 'Construction begins with regular updates and full transparency.' },
+          { step: '04', title: 'Delivery', desc: 'Final walkthrough, punch list, and keys — a home you\'re proud of.' },
+        ].map((item) => (
+          <div class="relative">
+            <span class="font-display text-5xl text-gold/20 absolute -top-2 -left-1">{item.step}</span>
+            <div class="relative pt-8">
+              <h3 class="font-display text-lg text-navy mb-2">{item.title}</h3>
+              <p class="text-textgray text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">
+        Let's Talk About Your Project
+      </h2>
+      <p class="text-white/60 text-sm mb-10">
+        No matter the scope, we bring the same level of care and craftsmanship to every project.
+      </p>
+      <a href="#contact" class="btn-gold">
+        START A CONVERSATION
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

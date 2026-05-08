@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { Phone } from '@lucide/astro';
+
+const possessions = [
+  {
+    name: 'Altadore',
+    price: '$1,695,000',
+    sqft: '1,720',
+    beds: '3',
+    baths: '3.5',
+    location: 'Altadore, Calgary',
+    imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85',
+  },
+  {
+    name: 'Killarney',
+    price: '$1,799,000',
+    sqft: '2,000',
+    beds: '4',
+    baths: '3.5',
+    location: 'Killarney, Calgary',
+    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85',
+  },
+  {
+    name: 'Mount Pleasant',
+    price: '$1,849,000',
+    sqft: '1,850',
+    beds: '3',
+    baths: '2.5',
+    location: 'Mount Pleasant, Calgary',
+    imageUrl: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85',
+  },
+];
+---
+
+<Layout
+  title="Quick Possessions — B2 Build Ltd | Move-In Ready Homes Calgary"
+  description="Browse B2 Build Ltd's selection of move-in ready luxury homes in Calgary's most desirable inner-city neighbourhoods."
+>
+  <Header />
+
+  <!-- PAGE HERO -->
+  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85"
+      alt="Quick possessions"
+      class="absolute inset-0 w-full h-full object-cover opacity-30"
+    />
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">AVAILABLE NOW</p>
+      <h1 class="font-display text-3xl lg:text-5xl text-white">
+        QUICK POSSESSIONS
+      </h1>
+      <p class="text-white/70 text-sm mt-2">Move-in ready luxury homes in Calgary</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-16 bg-offwhite">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <SectionHeading
+        eyebrow="MOVE-IN READY"
+        title="Find Your Perfect Home"
+        subtitle="Our quick possession homes are fully completed, move-in ready residences in Calgary's most sought-after inner-city communities. Each home has been crafted with the same attention to detail as our custom builds."
+      />
+    </div>
+  </section>
+
+  <!-- 3-COLUMN LISTING GRID -->
+  <section class="pb-16 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {possessions.map((home) => (
+          <PropertyCard
+            name={home.name}
+            price={home.price}
+            sqft={home.sqft}
+            beds={home.beds}
+            baths={home.baths}
+            imageUrl={home.imageUrl}
+            location={home.location}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER BANNER: Have Questions? -->
+  <section class="bg-navy py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <Phone class="w-12 h-12 text-gold mx-auto mb-6" />
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">QUESTIONS?</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">
+        Have Questions?
+      </h2>
+      <p class="text-white/60 text-sm mb-10 max-w-lg mx-auto">
+        Our team is here to help you find the perfect quick possession home or discuss custom build options.
+      </p>
+      <a href="tel:+14035550192" class="btn-gold text-base px-10 py-4">
+        CALL (403) 555-0192
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

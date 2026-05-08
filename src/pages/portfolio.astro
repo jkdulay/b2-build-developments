@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { ArrowRight } from '@lucide/astro';
+
+const projects = [
+  {
+    id: 'custom-1',
+    category: 'CUSTOM HOMES',
+    title: 'Altadore Residence',
+    location: 'Altadore, Calgary',
+    year: '2025',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85',
+    size: '2,100 SQ FT',
+  },
+  {
+    id: 'infill-1',
+    category: 'INFILL HOMES',
+    title: 'Killarney Modern',
+    location: 'Killarney, Calgary',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85',
+    size: '1,890 SQ FT',
+  },
+  {
+    id: 'reno-1',
+    category: 'RENOVATIONS',
+    title: 'Marda Loop Whole-Home',
+    location: 'Marda Loop, Calgary',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85',
+    size: '2,400 SQ FT',
+  },
+  {
+    id: 'custom-2',
+    category: 'CUSTOM HOMES',
+    title: 'Mount Pleasant Estate',
+    location: 'Mount Pleasant, Calgary',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85',
+    size: '2,650 SQ FT',
+  },
+  {
+    id: 'infill-2',
+    category: 'INFILL HOMES',
+    title: 'Richmond Semi-Detached',
+    location: 'Richmond, Calgary',
+    year: '2023',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85',
+    size: '1,720 SQ FT',
+  },
+  {
+    id: 'reno-2',
+    category: 'RENOVATIONS',
+    title: 'Bankview Kitchen & Bath',
+    location: 'Bankview, Calgary',
+    year: '2023',
+    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=85',
+    size: 'N/A',
+  },
+];
+---
+
+<Layout
+  title="Portfolio — B2 Build Ltd | Custom Homes & Renovations Calgary"
+  description="Browse B2 Build Ltd's portfolio of luxury custom homes, infill properties, and home renovations in Calgary's inner-city neighbourhoods."
+>
+  <Header />
+
+  <!-- PAGE HERO -->
+  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85"
+      alt="B2 Build portfolio"
+      class="absolute inset-0 w-full h-full object-cover opacity-30"
+    />
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">OUR WORK</p>
+      <h1 class="font-display text-3xl lg:text-5xl text-white">
+        PORTFOLIO
+      </h1>
+    </div>
+  </section>
+
+  <!-- FILTER NAV + GALLERY -->
+  <section class="py-16 lg:py-20 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <!-- Filter Nav -->
+      <div class="flex flex-wrap gap-3 mb-12">
+        {['ALL PROJECTS', 'CUSTOM HOMES', 'INFILL HOMES', 'RENOVATIONS'].map((filter) => (
+          <button
+            data-filter={filter}
+            class="portfolio-filter text-xs tracking-[0.2em] uppercase px-5 py-2.5 border border-navy/20 text-navy hover:bg-navy hover:text-white transition-all duration-300 active:bg-navy active:text-white"
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid -->
+      <div id="portfolio-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <div
+            class="portfolio-item group overflow-hidden bg-white"
+            data-category={project.category}
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/40 transition-all duration-300 flex items-center justify-center">
+                <span class="text-white text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-4 py-2">
+                  VIEW PROJECT
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gold text-xs tracking-[0.2em] uppercase mb-1">{project.category}</p>
+              <h3 class="font-display text-xl text-navy mb-1">{project.title}</h3>
+              <p class="text-textgray text-xs">{project.location} &nbsp;&bull;&nbsp; {project.year}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="bg-navy py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">NEXT PROJECT</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">
+        Let's Build Your Next Home
+      </h2>
+      <p class="text-white/60 text-sm mb-10 max-w-lg mx-auto">
+        From concept sketches to final keys — your dream home is waiting.
+      </p>
+      <a href="#contact" class="btn-gold">
+        START YOUR PROJECT <ArrowRight class="w-4 h-4 ml-2" />
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('.portfolio-filter');
+  const items = document.querySelectorAll<HTMLElement>('.portfolio-item');
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      // Update active state
+      filters.forEach((b) => b.classList.remove('bg-navy', 'text-white'));
+      btn.classList.add('bg-navy', 'text-white');
+
+      // Show/hide items
+      items.forEach((item) => {
+        if (filter === 'ALL PROJECTS' || item.dataset.category === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Set initial active
+  filters[0]?.classList.add('bg-navy', 'text-white');
+</script>

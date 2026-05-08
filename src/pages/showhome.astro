@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
+---
+
+<Layout
+  title="Showhome — B2 Build Ltd | Our Most Recent Build"
+  description="Tour B2 Build's most recent showhome — a luxury inner-city residence in Calgary featuring modern open concept design, premium finishes, and suite potential."
+>
+  <Header />
+
+  <!-- PAGE HERO -->
+  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85"
+      alt="B2 Build showhome exterior"
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+    />
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">CURRENT PROJECT</p>
+      <h1 class="font-display text-3xl lg:text-5xl text-white">
+        OUR MOST RECENT SHOWHOME
+      </h1>
+      <p class="text-white/70 text-sm mt-2">Altadore | Move-In Ready</p>
+    </div>
+  </section>
+
+  <!-- GALLERY: 1 large + 2 stacked -->
+  <section class="py-16 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-3 gap-4 h-auto lg:h-[540px]">
+        <!-- Large hero left -->
+        <div class="lg:col-span-2 h-64 lg:h-full overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85"
+            alt="Showhome living room"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <!-- Two stacked right -->
+        <div class="grid grid-rows-2 gap-4 h-64 lg:h-full">
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85"
+              alt="Showhome kitchen"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85"
+              alt="Showhome exterior detail"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS: 5-icon row -->
+  <section class="py-16 bg-white border-y border-navy/10">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <SectionHeading
+        eyebrow="HIGHLIGHTS"
+        title="What Makes This Home Special"
+        centered
+      />
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mt-10">
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-offwhite border border-navy/10 flex items-center justify-center">
+            <LayoutGrid class="w-6 h-6 text-gold" />
+          </div>
+          <p class="text-navy text-xs tracking-[0.15em] uppercase font-medium">Modern Open Concept</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-offwhite border border-navy/10 flex items-center justify-center">
+            <Star class="w-6 h-6 text-gold" />
+          </div>
+          <p class="text-navy text-xs tracking-[0.15em] uppercase font-medium">Elevated Finishes</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-offwhite border border-navy/10 flex items-center justify-center">
+            <BedDouble class="w-6 h-6 text-gold" />
+          </div>
+          <p class="text-navy text-xs tracking-[0.15em] uppercase font-medium">Spacious Bedrooms</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-offwhite border border-navy/10 flex items-center justify-center">
+            <Bath class="w-6 h-6 text-gold" />
+          </div>
+          <p class="text-navy text-xs tracking-[0.15em] uppercase font-medium">Luxurious Ensuites</p>
+        </div>
+        <div class="text-center col-span-2 sm:col-span-1">
+          <div class="w-14 h-14 mx-auto mb-4 bg-offwhite border border-navy/10 flex items-center justify-center">
+            <Home class="w-6 h-6 text-gold" />
+          </div>
+          <p class="text-navy text-xs tracking-[0.15em] uppercase font-medium">Suite Potential</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY DETAILS -->
+  <section class="py-16 bg-offwhite">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Stats -->
+        <div class="grid grid-cols-2 gap-6">
+          {[
+            { label: 'PRICE', value: '$1,695,000' },
+            { label: 'SQ FT', value: '1,720' },
+            { label: 'BEDROOMS', value: '3' },
+            { label: 'BATHROOMS', value: '3.5' },
+            { label: 'GARAGE', value: 'Double' },
+            { label: 'YEAR BUILT', value: '2025' },
+          ].map((item) => (
+            <div class="bg-white p-6 border-l-4 border-gold">
+              <p class="text-xs tracking-[0.2em] uppercase text-textgray mb-1">{item.label}</p>
+              <p class="font-display text-xl text-navy">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Description -->
+        <div>
+          <h3 class="font-display text-2xl text-navy mb-4">About This Home</h3>
+          <p class="text-textgray text-sm leading-relaxed mb-4">
+            This stunning Altadore showhome represents the very best of inner-city luxury living. Featuring a thoughtfully designed open main floor, chef-inspired kitchen with premium appliances, and a seamless indoor-outdoor living experience.
+          </p>
+          <p class="text-textgray text-sm leading-relaxed mb-6">
+            The upper floor offers three generously sized bedrooms including a primary suite with spa-like ensuite and walk-in closet. The fully developed basement provides suite potential with its own entrance, making this home as versatile as it is beautiful.
+          </p>
+          <p class="text-textgray text-sm leading-relaxed">
+            Located on a tree-lined street in the heart of Altadore, steps from parks, schools, and the vibrant Marda Loop community.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">SCHEDULE A VIEWING</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">
+        Ready to View Our Next Home?
+      </h2>
+      <p class="text-white/60 text-sm mb-10 max-w-lg mx-auto">
+        Join our exclusive early access list to be the first to tour B2 Build's upcoming projects before they hit the market.
+      </p>
+      <a href="#contact" class="btn-gold text-base px-8 py-4">
+        REQUEST EARLY ACCESS
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
