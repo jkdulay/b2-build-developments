@@ -13,7 +13,7 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-navy/95 backdrop-blur-sm shadow-lg">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="flex items-center justify-between h-20 lg:h-24">
       <!-- Logo -->
@@ -40,8 +40,8 @@ const currentPath = Astro.url.pathname;
 
       <!-- CTA + Mobile Toggle -->
       <div class="hidden lg:flex items-center gap-6">
-        <a href="#contact" class="btn-gold text-xs py-2.5 px-5">
-          GET IN TOUCH
+        <a href="tel:+14037143780" class="btn-gold text-xs py-2.5 px-5">
+          CALL NOW
         </a>
       </div>
 
@@ -70,8 +70,8 @@ const currentPath = Astro.url.pathname;
           {link.label}
         </a>
       ))}
-      <a href="#contact" class="btn-gold text-center mt-4">
-        GET IN TOUCH
+      <a href="tel:+14037143780" class="btn-gold text-center mt-4">
+        CALL NOW
       </a>
     </div>
   </div>
@@ -87,17 +87,11 @@ const currentPath = Astro.url.pathname;
   // Scroll behavior
   const handleScroll = () => {
     if (window.scrollY > 60) {
-      header?.classList.add('bg-navy', 'shadow-lg');
-      document.querySelectorAll('.header-logo-text').forEach(el => el.classList.remove('text-white'));
-      document.querySelectorAll('.header-logo-text').forEach(el => el.classList.add('text-white'));
       document.querySelectorAll('.header-nav-text').forEach(el => {
         el.classList.remove('text-white');
         el.classList.add('text-white/80');
       });
-      document.querySelectorAll('.header-logo-sub').forEach(el => el.classList.add('text-gold'));
     } else {
-      header?.classList.remove('bg-navy', 'shadow-lg');
-      document.querySelectorAll('.header-logo-sub').forEach(el => el.classList.remove('text-gold'));
       document.querySelectorAll('.header-nav-text').forEach(el => {
         el.classList.remove('text-white/80');
         el.classList.add('text-white');

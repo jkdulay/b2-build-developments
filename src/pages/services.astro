@@ -11,26 +11,36 @@ const services = [
     title: 'Custom Home Building',
     description: 'From lot selection to final keys, we build bespoke luxury homes tailored to your vision, lifestyle, and budget. Every detail is crafted with precision and care.',
     icon: Home,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+    alt: 'Custom luxury home exterior',
   },
   {
     title: 'Home Renovations',
     description: 'Transform your existing home into something extraordinary. Our renovation projects range from whole-home transformations to targeted kitchen and bathroom upgrades.',
     icon: RefreshCw,
+    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
+    alt: 'Modern renovated kitchen interior',
   },
   {
     title: 'Design & Planning',
     description: 'Our in-house design team works with you to develop floor plans, material selections, and finishes that bring your vision to life — before a single nail is driven.',
     icon: Compass,
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
+    alt: 'Architectural blueprints and design',
   },
   {
     title: 'Project Management',
     description: 'We handle every aspect of your build or renovation with transparent scheduling, budget management, and clear communication from start to finish.',
     icon: BarChart2,
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    alt: 'Construction project planning',
   },
   {
     title: 'Interior Finishing',
     description: 'The finishing details define a home. We offer expert interior finishing services including millwork, custom cabinetry, tiling, painting, and smart home integration.',
     icon: Sofa,
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80',
+    alt: 'Luxury interior living space',
   },
 ];
 ---
@@ -57,13 +67,12 @@ const services = [
   </section>
 
   <!-- INTRO -->
-  <section class="py-16 bg-offwhite">
+  <section class="py-12 bg-offwhite">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <SectionHeading
-        eyebrow="THE FULL SPECTRUM"
-        title="From Vision to Keys"
-        subtitle="B2 Build Ltd offers a comprehensive suite of services for homeowners building, buying, or renovating in Calgary's inner-city market. From the first sketch to the final walkthrough, we're with you every step of the way."
-      />
+      <p class="text-gold text-xs tracking-[0.35em] uppercase mb-4">THE FULL SPECTRUM</p>
+      <h2 class="font-display text-xl lg:text-2xl tracking-wide text-navy">
+        From concept to completion, we provide a full service building experience with quality, transparency, and attention to detail.
+      </h2>
     </div>
   </section>
 
@@ -72,7 +81,7 @@ const services = [
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {services.map((service) => (
-          <ServiceCard title={service.title} description={service.description} />
+          <ServiceCard title={service.title} description={service.description} image={service.image} alt={service.alt} />
         ))}
       </div>
     </div>

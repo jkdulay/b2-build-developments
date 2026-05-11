@@ -31,7 +31,7 @@ export default {
           900: '#2c1e10',
         },
         offwhite: '#f8f8f8',
-        textgray: '#94a3b8',
+        textgray: '#475569',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],

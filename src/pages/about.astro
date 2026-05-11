@@ -28,32 +28,42 @@ import { Hammer, Palette, Users, ShieldCheck } from '@lucide/astro';
     </div>
   </section>
 
-  <!-- TWO COLUMN TEXT + HERO IMAGE -->
+  <!-- INTRO: 40-60 layout -->
   <section class="py-20 lg:py-28 bg-offwhite">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <!-- Hero image -->
-      <div class="w-full h-64 lg:h-96 mb-16 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=85"
-          alt="Modern luxury home exterior"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
-      <!-- Two-column text -->
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
-        <div>
+      <div class="grid lg:grid-cols-10 gap-12 lg:gap-16 items-center">
+        <!-- Text left (40%) -->
+        <div class="lg:col-span-4">
           <p class="text-textgray text-sm leading-relaxed mb-6">
-            B2 Build Ltd is a Calgary-based custom home builder specializing in luxury inner-city residences. Founded on the principle that every home should be a masterwork of craft and design, we bring decades of construction expertise to each and every project.
+            B2 Build Ltd. is a Calgary-based custom home builder focused on creating high-quality, modern homes in the city's most desirable inner-city communities.
           </p>
-          <p class="text-textgray text-sm leading-relaxed">
-            From initial concept to final walkthrough, our team works closely with homeowners to understand their vision, lifestyle, and aspirations. We believe building a home should be an exciting journey — one marked by transparent communication, meticulous attention to detail, and a shared passion for creating spaces that truly elevate everyday living.
+          <p class="text-textgray text-sm leading-relaxed mb-6">
+            We combine thoughtful design, premium materials, and expert craftsmanship to deliver homes that stand the test of time.
+          </p>
+          <p class="text-navy font-display text-lg italic">
+            Your vision inspires us.<br />Our mission is to bring it to life.
           </p>
         </div>
+        <!-- Image right (60%) -->
+        <div class="lg:col-span-6">
+          <div class="overflow-hidden h-72 lg:h-[500px]">
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=85"
+              alt="Modern luxury home exterior"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Second text block: 50-50 -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 mt-16">
         <div>
           <p class="text-textgray text-sm leading-relaxed mb-6">
             Our portfolio spans the full spectrum of inner-city living — from custom infill homes in established neighbourhoods to complete whole-home renovations that reimagine space in bold new ways. Every project reflects our unwavering commitment to quality craftsmanship and modern design principles.
           </p>
+        </div>
+        <div>
           <p class="text-textgray text-sm leading-relaxed">
             We build in Calgary's most desirable communities: Altadore, Killarney, Mount Pleasant, Marda Loop, and beyond. Our clients choose us because they want more than a house — they want a home that tells their story.
           </p>

@@ -14,19 +14,23 @@ import { Home, MapPin, Award, Sparkles, ArrowRight } from '@lucide/astro';
     <!-- Left: Navy background + text -->
     <div class="w-full lg:w-1/2 bg-navy flex items-center relative overflow-hidden">
       <div class="max-w-xl mx-auto px-8 lg:px-16 py-40 relative z-10">
-        <p class="text-gold text-xs tracking-[0.4em] uppercase mb-6">Award-Winning Calgary Builders</p>
-        <h1 class="font-display text-4xl lg:text-5xl xl:text-6xl text-white leading-[1.15] mb-8">
-          LUXURY<br />INNER-CITY<br />LIVING IN<br />CALGARY
+        <h1 class="font-display text-4xl lg:text-5xl xl:text-6xl leading-[1.15] mb-6">
+          <span class="text-white">LUXURY</span><br />
+          <span class="text-gold">INNER-CITY</span><br />
+          <span class="text-white">LIVING IN CALGARY</span>
         </h1>
-        <p class="text-white/60 text-sm leading-relaxed mb-10 max-w-md">
-          B2 Build Ltd crafts exceptional custom homes and renovations in Calgary's most desirable inner-city neighbourhoods.
+        <p class="text-white/70 text-sm leading-relaxed mb-4 max-w-md">
+          Modern design. Premium finishes.<br />Built for the way you live.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="/portfolio" class="btn-gold">
-            VIEW PORTFOLIO
+        <div class="w-12 h-px bg-gold/50 mb-6"></div>
+        <p class="text-white text-xs tracking-[0.3em] uppercase mb-1">STARTING AT</p>
+        <p class="text-gold font-body text-4xl lg:text-5xl font-semibold tracking-wide mb-8">$1.8M</p>
+        <div class="flex flex-nowrap gap-3">
+          <a href="/portfolio" class="btn-gold text-xs px-4 py-2.5">
+            REQUEST EARLY ACCESS
           </a>
-          <a href="#contact" class="btn-outline-gold border-white/30 text-white hover:bg-white hover:text-navy hover:border-white">
-            GET IN TOUCH
+          <a href="tel:+14037143780" class="btn-outline-gold border-white/30 text-white hover:bg-white hover:text-navy hover:border-white text-xs px-4 py-2.5">
+            CALL: 403-714-3780
           </a>
         </div>
       </div>
@@ -57,21 +61,21 @@ import { Home, MapPin, Award, Sparkles, ArrowRight } from '@lucide/astro';
         </div>
         <div class="text-center group">
           <div class="w-14 h-14 mx-auto mb-4 border border-gold flex items-center justify-center group-hover:bg-gold transition-all duration-300">
-            <MapPin class="w-6 h-6 text-gold group-hover:text-white transition-colors" />
+            <Sparkles class="w-6 h-6 text-gold group-hover:text-white transition-colors" />
           </div>
-          <p class="text-white/80 text-xs tracking-[0.2em] uppercase">Suite Potential</p>
+          <p class="text-white/80 text-xs tracking-[0.2em] uppercase">Premium Finishes</p>
         </div>
         <div class="text-center group">
           <div class="w-14 h-14 mx-auto mb-4 border border-gold flex items-center justify-center group-hover:bg-gold transition-all duration-300">
-            <Award class="w-6 h-6 text-gold group-hover:text-white transition-colors" />
+            <MapPin class="w-6 h-6 text-gold group-hover:text-white transition-colors" />
           </div>
           <p class="text-white/80 text-xs tracking-[0.2em] uppercase">Prime Inner-City</p>
         </div>
         <div class="text-center group">
           <div class="w-14 h-14 mx-auto mb-4 border border-gold flex items-center justify-center group-hover:bg-gold transition-all duration-300">
-            <Sparkles class="w-6 h-6 text-gold group-hover:text-white transition-colors" />
+            <Award class="w-6 h-6 text-gold group-hover:text-white transition-colors" />
           </div>
-          <p class="text-white/80 text-xs tracking-[0.2em] uppercase">Premium Finishes</p>
+          <p class="text-white/80 text-xs tracking-[0.2em] uppercase">Luxury Living</p>
         </div>
       </div>
     </div>
@@ -86,7 +90,7 @@ import { Home, MapPin, Award, Sparkles, ArrowRight } from '@lucide/astro';
           <SectionHeading
             eyebrow="OUR PHILOSOPHY"
             title="Designed for how you live today"
-            subtitle="Every B2 Build home is a reflection of modern Calgary living — spaces that breathe, flow, and inspire. We believe luxury is in the details that matter most."
+            subtitle="This is more than a house. Every element has been carefully designed to balance modern aesthetics with practical living. Ideal for professionals, families, and investors looking to secure a premium inner-city property."
           />
           <div class="mt-8 flex flex-col gap-4">
             <div class="flex items-start gap-3">
