@@ -7,58 +7,40 @@ import { ArrowRight } from '@lucide/astro';
 
 const projects = [
   {
-    id: 'custom-1',
+    id: 'butler',
     category: 'CUSTOM HOMES',
-    title: 'Altadore Residence',
-    location: 'Altadore, Calgary',
+    title: 'Butler Crescent',
+    location: '36 Butler Crescent NW, Calgary',
     year: '2025',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85',
-    size: '2,100 SQ FT',
+    image: '/photos/butler/butler-1.jpg',
+    size: 'LUXURY INFILL',
   },
   {
-    id: 'infill-1',
-    category: 'INFILL HOMES',
-    title: 'Killarney Modern',
-    location: 'Killarney, Calgary',
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85',
-    size: '1,890 SQ FT',
-  },
-  {
-    id: 'reno-1',
-    category: 'RENOVATIONS',
-    title: 'Marda Loop Whole-Home',
-    location: 'Marda Loop, Calgary',
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85',
-    size: '2,400 SQ FT',
-  },
-  {
-    id: 'custom-2',
+    id: 'mount-pleasant',
     category: 'CUSTOM HOMES',
-    title: 'Mount Pleasant Estate',
+    title: 'Mount Pleasant',
     location: 'Mount Pleasant, Calgary',
     year: '2024',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85',
-    size: '2,650 SQ FT',
+    image: '/photos/mount-pleasant/mount-pleasant-1.jpg',
+    size: 'CUSTOM HOME',
   },
   {
-    id: 'infill-2',
+    id: 'tuxedo',
     category: 'INFILL HOMES',
-    title: 'Richmond Semi-Detached',
-    location: 'Richmond, Calgary',
-    year: '2023',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85',
-    size: '1,720 SQ FT',
+    title: 'Tuxedo',
+    location: 'Tuxedo, Calgary',
+    year: '2024',
+    image: '/photos/tuxedo/tuxedo-1.jpg',
+    size: 'INFILL HOME',
   },
   {
-    id: 'reno-2',
+    id: 'winston',
     category: 'RENOVATIONS',
-    title: 'Bankview Kitchen & Bath',
-    location: 'Bankview, Calgary',
-    year: '2023',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=85',
-    size: 'N/A',
+    title: 'Winston',
+    location: 'Winston, Calgary',
+    year: '2024',
+    image: '/photos/winston/winston-1.jpg',
+    size: 'WHOLE-HOME',
   },
 ];
 ---
@@ -72,9 +54,9 @@ const projects = [
   <!-- PAGE HERO -->
   <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
     <img
-      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85"
+      src="/photos/butler/butler-1.jpg"
       alt="B2 Build portfolio"
-      class="absolute inset-0 w-full h-full object-cover opacity-30"
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
     />
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
       <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">OUR WORK</p>
