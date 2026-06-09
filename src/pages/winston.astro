@@ -1,0 +1,388 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  Home,
+  TrendingUp,
+  MapPin,
+  Gem,
+  Building2,
+  Users,
+  Diamond,
+  CalendarCheck,
+  Paintbrush,
+  Lock,
+  FileText,
+  HardHat,
+  CheckCircle,
+  Phone,
+  Globe,
+  MapPinned,
+} from '@lucide/astro';
+---
+
+<Layout
+  title="PJ Winston — B2 Build Ltd | New Modern Inner-City Home Coming Soon"
+  description="A new modern inner-city home coming soon in Calgary by B2 Build Ltd. Modern design, suite potential, prime location, and luxury finishes. Starting at $1.8M. Register for early access."
+>
+  <!-- ============================================================
+       HERO: 50/50 split, navy left + architectural photo right
+       ============================================================ -->
+  <section class="min-h-screen flex relative">
+    <!-- Left: Navy background + content -->
+    <div class="w-full lg:w-1/2 bg-navy flex items-center relative overflow-hidden">
+      <div class="max-w-xl mx-auto px-8 lg:px-16 py-32 lg:py-40 relative z-10 w-full">
+        <!-- B2 Logo lockup -->
+        <a href="/" class="inline-flex flex-col leading-none mb-10 group">
+          <div class="flex items-center gap-3">
+            <svg viewBox="0 0 40 40" class="w-10 h-10 text-gold" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M6 20 L20 6 L34 20" />
+              <path d="M10 18 V34 H30 V18" />
+              <path d="M17 34 V24 H23 V34" />
+            </svg>
+            <span class="font-display text-3xl text-white tracking-wider">B2 BUILD <span class="text-gold">LTD</span></span>
+          </div>
+          <span class="text-gold text-[11px] tracking-[0.35em] uppercase mt-2 pl-1">Building Your Vision</span>
+        </a>
+
+        <!-- Headline -->
+        <h1 class="font-display text-4xl lg:text-5xl xl:text-6xl leading-[1.05] mb-5 font-bold">
+          <span class="text-white block">LUXURY</span>
+          <span class="text-gold block">INNER-CITY</span>
+          <span class="text-white block">LIVING IN CALGARY</span>
+        </h1>
+
+        <!-- Subhead -->
+        <p class="text-white text-base lg:text-lg leading-snug mb-8 max-w-md">
+          New Modern Inner-City Home Coming Soon
+        </p>
+
+        <!-- 4 Feature pills -->
+        <div class="grid grid-cols-4 gap-3 lg:gap-5 mb-8 max-w-md">
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-2 border border-gold flex items-center justify-center">
+              <Home class="w-5 h-5 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[10px] lg:text-[11px] tracking-[0.15em] uppercase leading-tight">Modern<br />Design</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-2 border border-gold flex items-center justify-center">
+              <TrendingUp class="w-5 h-5 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[10px] lg:text-[11px] tracking-[0.15em] uppercase leading-tight">Suite<br />Potential</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-2 border border-gold flex items-center justify-center">
+              <MapPin class="w-5 h-5 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[10px] lg:text-[11px] tracking-[0.15em] uppercase leading-tight">Prime<br />Location</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-2 border border-gold flex items-center justify-center">
+              <Gem class="w-5 h-5 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[10px] lg:text-[11px] tracking-[0.15em] uppercase leading-tight">Luxury<br />Finishes</p>
+          </div>
+        </div>
+
+        <!-- Starting at $1.8M -->
+        <div class="inline-block bg-gold px-6 py-3">
+          <p class="text-white text-[11px] tracking-[0.3em] uppercase font-medium">Starting At</p>
+        </div>
+        <p class="text-gold font-display text-5xl lg:text-6xl font-bold tracking-wide mt-1">$1.8M</p>
+      </div>
+
+      <!-- Decorative diagonal sweep -->
+      <div class="absolute -right-24 top-0 bottom-0 w-96 bg-gold/5 rotate-12 hidden lg:block pointer-events-none"></div>
+    </div>
+
+    <!-- Right: Architectural photo -->
+    <div class="hidden lg:block lg:w-1/2 relative">
+      <img
+        src="/photos/winston/winston-1.jpg"
+        alt="Luxury modern inner-city home exterior"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy/40 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       A HOME DESIGNED FOR MODERN LIVING
+       ============================================================ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <div class="w-12 h-px bg-gold mb-6"></div>
+          <h2 class="font-display text-3xl lg:text-4xl text-navy leading-tight mb-6 uppercase">
+            A Home Designed<br />For Modern Living
+          </h2>
+          <p class="text-textgray text-base leading-relaxed mb-5">
+            This is more than a house — it is a carefully planned inner-city home built for the way people live today.
+          </p>
+          <p class="text-textgray text-base leading-relaxed">
+            Enjoy open-concept living, elevated design details, practical storage, spacious bedrooms, and flexible areas that can support working from home, entertaining, family living, or investment use.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 h-72 lg:h-96">
+          <div class="overflow-hidden">
+            <img src="/photos/butler/butler-4.jpg" alt="Luxury kitchen with white quartz waterfall island and globe pendants" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="overflow-hidden">
+            <img src="/photos/butler/butler-6.jpg" alt="Kitchen with fireplace in background, kitchen and living room feel" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="overflow-hidden">
+            <img src="/photos/butler/butler-3.jpg" alt="Basement wet bar lounge area for entertaining" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4-FEATURE BAR (dark navy)
+       ============================================================ -->
+  <section class="bg-navy py-16 lg:py-20 border-y border-gold/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <Building2 class="w-8 h-8 text-gold" stroke-width="1.5" />
+          </div>
+          <div>
+            <h3 class="text-white text-xs tracking-[0.2em] uppercase font-semibold mb-2">Modern Architectural Design</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Bold exterior, premium curb appeal, and a luxury inner-city presence.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <Users class="w-8 h-8 text-gold" stroke-width="1.5" />
+          </div>
+          <div>
+            <h3 class="text-white text-xs tracking-[0.2em] uppercase font-semibold mb-2">Suite Potential</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Ideal for extended family, rental income, or added long-term value.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <MapPin class="w-8 h-8 text-gold" stroke-width="1.5" />
+          </div>
+          <div>
+            <h3 class="text-white text-xs tracking-[0.2em] uppercase font-semibold mb-2">Prime Calgary Location</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Close to downtown, schools, restaurants, parks, shopping, and major routes.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <Diamond class="w-8 h-8 text-gold" stroke-width="1.5" />
+          </div>
+          <div>
+            <h3 class="text-white text-xs tracking-[0.2em] uppercase font-semibold mb-2">Luxury Finish Package</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Designed for buyers who want style, comfort, and quality in every detail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY BUY BEFORE COMPLETION + REGISTER FOR EARLY ACCESS
+       ============================================================ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <!-- LEFT: Why Buy Before Completion? -->
+        <div class="lg:col-span-4">
+          <div class="w-12 h-px bg-gold mb-6"></div>
+          <h2 class="font-display text-3xl lg:text-4xl text-navy leading-tight mb-8 uppercase">
+            Why Buy Before<br />Completion?
+          </h2>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 shrink-0 border border-gold flex items-center justify-center">
+                <CalendarCheck class="w-5 h-5 text-gold" stroke-width="1.5" />
+              </div>
+              <p class="text-textgray text-sm leading-relaxed pt-1.5">Secure the property before it reaches the full market</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 shrink-0 border border-gold flex items-center justify-center">
+                <Users class="w-5 h-5 text-gold" stroke-width="1.5" />
+              </div>
+              <p class="text-textgray text-sm leading-relaxed pt-1.5">Avoid competing with more buyers after completion</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 shrink-0 border border-gold flex items-center justify-center">
+                <Paintbrush class="w-5 h-5 text-gold" stroke-width="1.5" />
+              </div>
+              <p class="text-textgray text-sm leading-relaxed pt-1.5">Potentially influence select design finishes</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 shrink-0 border border-gold flex items-center justify-center">
+                <Lock class="w-5 h-5 text-gold" stroke-width="1.5" />
+              </div>
+              <p class="text-textgray text-sm leading-relaxed pt-1.5">Lock in a premium inner-city property early</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 shrink-0 border border-gold flex items-center justify-center">
+                <FileText class="w-5 h-5 text-gold" stroke-width="1.5" />
+              </div>
+              <p class="text-textgray text-sm leading-relaxed pt-1.5">Plan financing and possession with more flexibility</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CENTER: Architectural sketch + private pre-completion access -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+          <div class="bg-offwhite border border-navy/10 aspect-[4/3] flex items-center justify-center overflow-hidden">
+            <img
+              src="/photos/elevation.jpg"
+              alt="Architectural elevation drawings of the home"
+              class="w-full h-full object-contain p-2"
+            />
+          </div>
+
+          <div class="bg-navy p-6 lg:p-7 flex items-start gap-4">
+            <div class="w-12 h-12 shrink-0 border border-gold flex items-center justify-center">
+              <HardHat class="w-6 h-6 text-gold" stroke-width="1.5" />
+            </div>
+            <div>
+              <h3 class="text-white text-sm tracking-[0.2em] uppercase font-semibold mb-2">Private Pre-Completion Access</h3>
+              <p class="text-white/70 text-sm leading-relaxed">Register today for updates, floor plans, pricing details, and private showing opportunities.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Register for Early Access form -->
+        <div class="lg:col-span-4">
+          <div class="bg-navy p-8 lg:p-10">
+            <h2 class="font-display text-3xl lg:text-4xl leading-tight mb-3">
+              <span class="text-white block">Register For</span>
+              <span class="text-gold block">Early Access</span>
+            </h2>
+            <p class="text-white/70 text-sm leading-relaxed mb-6">
+              Be the first to receive updates, renderings, floor plans, pricing details, and private showing opportunities.
+            </p>
+
+            <form class="flex flex-col gap-3" onsubmit="handleEarlyAccess(event)">
+              <input type="text" placeholder="Full Name" class="w-full bg-white px-4 py-3 text-sm text-navy placeholder-textgray/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <input type="email" placeholder="Email Address" class="w-full bg-white px-4 py-3 text-sm text-navy placeholder-textgray/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <input type="tel" placeholder="Phone Number" class="w-full bg-white px-4 py-3 text-sm text-navy placeholder-textgray/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <input type="text" placeholder="Message (Optional)" class="w-full bg-white px-4 py-3 text-sm text-navy placeholder-textgray/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <button type="submit" class="mt-2 w-full bg-gold text-white font-semibold uppercase tracking-[0.15em] text-sm py-3.5 hover:bg-white hover:text-navy transition-colors duration-300">
+                Request Early Access
+              </button>
+            </form>
+            <p id="early-access-success" class="hidden text-gold text-sm mt-4">Thank you — we'll be in touch shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BUILT BY B2 BUILD LTD
+       ============================================================ -->
+  <section class="bg-navy py-20 lg:py-24 border-t border-gold/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div class="lg:col-span-4">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="/photos/winston/winston-6.jpg" alt="Calgary skyline" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <p class="text-white text-xs tracking-[0.4em] uppercase mb-3">Built By</p>
+          <h2 class="font-display text-4xl lg:text-5xl text-gold font-bold mb-5 leading-tight">
+            B2 BUILD LTD
+          </h2>
+          <div class="w-12 h-px bg-gold mb-5"></div>
+          <p class="text-white/80 text-base leading-relaxed mb-5">
+            Committed to delivering quality homes with strong design, reliable construction, and a clear vision for modern living.
+          </p>
+          <p class="text-white text-sm tracking-[0.2em] uppercase font-semibold">
+            Your Vision, Our Mission.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 grid grid-cols-2 gap-8">
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+              <Building2 class="w-9 h-9 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[11px] tracking-[0.2em] uppercase font-semibold leading-tight">Quality<br />Construction</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+              <Home class="w-9 h-9 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[11px] tracking-[0.2em] uppercase font-semibold leading-tight">Modern<br />Design</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+              <Users class="w-9 h-9 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[11px] tracking-[0.2em] uppercase font-semibold leading-tight">Client<br />Focused</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+              <CheckCircle class="w-9 h-9 text-gold" stroke-width="1.5" />
+            </div>
+            <p class="text-white text-[11px] tracking-[0.2em] uppercase font-semibold leading-tight">Built To<br />Last</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GOLD FOOTER BAND
+       ============================================================ -->
+  <section class="bg-gold">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-center md:text-left">
+        <a href="tel:+140****3780" class="flex items-center justify-center md:justify-start gap-4 group">
+          <div class="w-14 h-14 shrink-0 border-2 border-white flex items-center justify-center group-hover:bg-white transition-colors">
+            <Phone class="w-6 h-6 text-white group-hover:text-gold transition-colors" stroke-width="1.5" />
+          </div>
+          <div>
+            <p class="text-white/80 text-[10px] tracking-[0.3em] uppercase mb-0.5">Call Today</p>
+            <p class="text-white text-xl lg:text-2xl font-display font-semibold tracking-wide">403-714-3780</p>
+          </div>
+        </a>
+
+        <a href="https://b2build.ca" target="_blank" rel="noopener" class="flex items-center justify-center md:justify-start gap-4 group">
+          <div class="w-14 h-14 shrink-0 border-2 border-white flex items-center justify-center group-hover:bg-white transition-colors">
+            <Globe class="w-6 h-6 text-white group-hover:text-gold transition-colors" stroke-width="1.5" />
+          </div>
+          <div>
+            <p class="text-white/80 text-[10px] tracking-[0.3em] uppercase mb-0.5">Visit Online</p>
+            <p class="text-white text-xl lg:text-2xl font-display font-semibold tracking-wide">b2build.ca</p>
+          </div>
+        </a>
+
+        <div class="flex items-center justify-center md:justify-start gap-4">
+          <div class="w-14 h-14 shrink-0 border-2 border-white flex items-center justify-center">
+            <MapPinned class="w-6 h-6 text-white" stroke-width="1.5" />
+          </div>
+          <div>
+            <p class="text-white/80 text-[10px] tracking-[0.3em] uppercase mb-0.5">Proudly Building</p>
+            <p class="text-white text-xl lg:text-2xl font-display font-semibold tracking-wide">In Calgary</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  function handleEarlyAccess(e: Event) {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const success = document.getElementById('early-access-success');
+    form.style.display = 'none';
+    if (success) success.classList.remove('hidden');
+  }
+</script>
