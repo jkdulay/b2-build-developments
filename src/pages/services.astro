@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import { Home, RefreshCw, Compass, BarChart2, Sofa } from '@lucide/astro';
+import { Home, Compass, BarChart2, Sofa } from '@lucide/astro';
 
 const services = [
   {
@@ -13,13 +13,6 @@ const services = [
     icon: Home,
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
     alt: 'Custom luxury home exterior',
-  },
-  {
-    title: 'Home Renovations',
-    description: 'Transform your existing home into something extraordinary. Our renovation projects range from whole-home transformations to targeted kitchen and bathroom upgrades.',
-    icon: RefreshCw,
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
-    alt: 'Modern renovated kitchen interior',
   },
   {
     title: 'Design & Planning',
@@ -52,7 +45,7 @@ const services = [
   <Header />
 
   <!-- PAGE HERO -->
-  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+  <section class="relative h-64 lg:h-80 bg-black flex items-end overflow-hidden">
     <img
       src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85"
       alt="B2 Build services"
@@ -67,19 +60,19 @@ const services = [
   </section>
 
   <!-- INTRO -->
-  <section class="py-12 bg-offwhite">
+  <section class="py-12 bg-white">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-gold text-xs tracking-[0.35em] uppercase mb-4">THE FULL SPECTRUM</p>
-      <h2 class="font-display text-xl lg:text-2xl tracking-wide text-navy">
+      <h2 class="font-display text-xl lg:text-2xl tracking-wide text-black">
         From concept to completion, we provide a full service building experience with quality, transparency, and attention to detail.
       </h2>
     </div>
   </section>
 
-  <!-- 5-COLUMN GRID -->
-  <section class="py-16 bg-offwhite">
+  <!-- 4-COLUMN GRID -->
+  <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service) => (
           <ServiceCard title={service.title} description={service.description} image={service.image} alt={service.alt} />
         ))}
@@ -88,7 +81,7 @@ const services = [
   </section>
 
   <!-- PROCESS SECTION -->
-  <section class="py-20 bg-white border-y border-navy/10">
+  <section class="py-20 bg-white border-y border-black/10">
     <div class="max-w-5xl mx-auto px-6 lg:px-12">
       <SectionHeading
         eyebrow="OUR PROCESS"
@@ -105,8 +98,8 @@ const services = [
           <div class="relative">
             <span class="font-display text-5xl text-gold/20 absolute -top-2 -left-1">{item.step}</span>
             <div class="relative pt-8">
-              <h3 class="font-display text-lg text-navy mb-2">{item.title}</h3>
-              <p class="text-textgray text-sm leading-relaxed">{item.desc}</p>
+              <h3 class="font-display text-lg text-black mb-2">{item.title}</h3>
+              <p class="text-black/70 text-sm leading-relaxed">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -115,7 +108,7 @@ const services = [
   </section>
 
   <!-- CTA -->
-  <section class="py-20 bg-navy">
+  <section class="py-20 bg-black">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">
         Let's Talk About Your Project

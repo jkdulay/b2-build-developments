@@ -9,7 +9,6 @@ import { Phone } from '@lucide/astro';
 const possessions = [
   {
     name: 'Altadore',
-    price: '$1,695,000',
     sqft: '1,720',
     beds: '3',
     baths: '3.5',
@@ -18,7 +17,6 @@ const possessions = [
   },
   {
     name: 'Killarney',
-    price: '$1,799,000',
     sqft: '2,000',
     beds: '4',
     baths: '3.5',
@@ -27,7 +25,6 @@ const possessions = [
   },
   {
     name: 'Mount Pleasant',
-    price: '$1,849,000',
     sqft: '1,850',
     beds: '3',
     baths: '2.5',
@@ -44,7 +41,7 @@ const possessions = [
   <Header />
 
   <!-- PAGE HERO -->
-  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+  <section class="relative h-64 lg:h-80 bg-black flex items-end overflow-hidden">
     <img
       src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85"
       alt="Quick possessions"
@@ -60,7 +57,7 @@ const possessions = [
   </section>
 
   <!-- INTRO -->
-  <section class="py-16 bg-offwhite">
+  <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <SectionHeading
         eyebrow="MOVE-IN READY"
@@ -71,13 +68,12 @@ const possessions = [
   </section>
 
   <!-- 3-COLUMN LISTING GRID -->
-  <section class="pb-16 bg-offwhite">
+  <section class="pb-16 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {possessions.map((home) => (
           <PropertyCard
             name={home.name}
-            price={home.price}
             sqft={home.sqft}
             beds={home.beds}
             baths={home.baths}
@@ -90,7 +86,7 @@ const possessions = [
   </section>
 
   <!-- FOOTER BANNER: Have Questions? -->
-  <section class="bg-navy py-20">
+  <section class="bg-black py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <Phone class="w-12 h-12 text-gold mx-auto mb-6" />
       <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">QUESTIONS?</p>
@@ -100,8 +96,8 @@ const possessions = [
       <p class="text-white/60 text-sm mb-10 max-w-lg mx-auto">
         Our team is here to help you find the perfect quick possession home or discuss custom build options.
       </p>
-      <a href="tel:+14035550192" class="btn-gold text-base px-10 py-4">
-        CALL (403) 555-0192
+      <a href="tel:+14036192702" class="btn-gold text-base px-10 py-4">
+        CALL (403) 619-2702
       </a>
     </div>
   </section>

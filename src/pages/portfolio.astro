@@ -7,40 +7,40 @@ import { ArrowRight } from '@lucide/astro';
 
 const projects = [
   {
+    id: 'brooklyn',
+    category: 'CUSTOM HOMES',
+    title: 'The Brooklyn',
+    location: '2220 8 Street NE, Calgary',
+    year: '2026',
+    image: '/photos/butler/butler-1.jpg', // TODO: Replace with Brooklyn photos
+    size: 'CUSTOM BUILD',
+  },
+  {
+    id: 'villa-castano',
+    category: 'CUSTOM HOMES',
+    title: 'Villa Castano',
+    location: '442 / 444 27 Ave NW, Calgary',
+    year: '2026',
+    image: '/photos/mount-pleasant/mount-pleasant-1.jpg', // TODO: Replace with Villa Castano photos
+    size: 'DUPLEX RESIDENCES',
+  },
+  {
+    id: 'tux',
+    category: 'INFILL HOMES',
+    title: 'The Tux',
+    location: '212 / 214 26 Ave NW, Calgary',
+    year: '2026',
+    image: '/photos/tuxedo/tuxedo-1.jpg', // TODO: Add The Tux interior + hero photos
+    size: 'DUPLEX RESIDENCES',
+  },
+  {
     id: 'butler',
     category: 'CUSTOM HOMES',
-    title: 'Butler Crescent',
+    title: 'The Butler',
     location: '36 Butler Crescent NW, Calgary',
     year: '2025',
     image: '/photos/butler/butler-1.jpg',
-    size: 'LUXURY INFILL',
-  },
-  {
-    id: 'mount-pleasant',
-    category: 'CUSTOM HOMES',
-    title: 'Mount Pleasant',
-    location: 'Mount Pleasant, Calgary',
-    year: '2024',
-    image: '/photos/mount-pleasant/mount-pleasant-1.jpg',
-    size: 'CUSTOM HOME',
-  },
-  {
-    id: 'tuxedo',
-    category: 'INFILL HOMES',
-    title: 'Tuxedo',
-    location: 'Tuxedo, Calgary',
-    year: '2024',
-    image: '/photos/tuxedo/tuxedo-1.jpg',
-    size: 'INFILL HOME',
-  },
-  {
-    id: 'winston',
-    category: 'RENOVATIONS',
-    title: 'Winston',
-    location: 'Winston, Calgary',
-    year: '2024',
-    image: '/photos/winston/winston-1.jpg',
-    size: 'WHOLE-HOME',
+    size: 'LUXURY BUNGALOW · SOLD',
   },
 ];
 ---
@@ -52,7 +52,7 @@ const projects = [
   <Header />
 
   <!-- PAGE HERO -->
-  <section class="relative h-64 lg:h-80 bg-navy flex items-end overflow-hidden">
+  <section class="relative h-64 lg:h-80 bg-black flex items-end overflow-hidden">
     <img
       src="/photos/butler/butler-1.jpg"
       alt="B2 Build portfolio"
@@ -67,14 +67,14 @@ const projects = [
   </section>
 
   <!-- FILTER NAV + GALLERY -->
-  <section class="py-16 lg:py-20 bg-offwhite">
+  <section class="py-16 lg:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <!-- Filter Nav -->
       <div class="flex flex-wrap gap-3 mb-12">
         {['ALL PROJECTS', 'CUSTOM HOMES', 'INFILL HOMES', 'RENOVATIONS'].map((filter) => (
           <button
             data-filter={filter}
-            class="portfolio-filter text-xs tracking-[0.2em] uppercase px-5 py-2.5 border border-navy/20 text-navy hover:bg-navy hover:text-white transition-all duration-300 active:bg-navy active:text-white"
+            class="portfolio-filter text-xs tracking-[0.2em] uppercase px-5 py-2.5 border border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300 active:bg-black active:text-white"
           >
             {filter}
           </button>
@@ -94,7 +94,7 @@ const projects = [
                 alt={project.title}
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/40 transition-all duration-300 flex items-center justify-center">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                 <span class="text-white text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-4 py-2">
                   VIEW PROJECT
                 </span>
@@ -102,8 +102,8 @@ const projects = [
             </div>
             <div class="p-6">
               <p class="text-gold text-xs tracking-[0.2em] uppercase mb-1">{project.category}</p>
-              <h3 class="font-display text-xl text-navy mb-1">{project.title}</h3>
-              <p class="text-textgray text-xs">{project.location} &nbsp;&bull;&nbsp; {project.year}</p>
+              <h3 class="font-display text-xl text-black mb-1">{project.title}</h3>
+              <p class="text-black/70 text-xs">{project.location} &nbsp;&bull;&nbsp; {project.year}</p>
             </div>
           </div>
         ))}
@@ -112,7 +112,7 @@ const projects = [
   </section>
 
   <!-- CTA BANNER -->
-  <section class="bg-navy py-20">
+  <section class="bg-black py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">NEXT PROJECT</p>
       <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">
@@ -139,8 +139,8 @@ const projects = [
       const filter = btn.dataset.filter;
 
       // Update active state
-      filters.forEach((b) => b.classList.remove('bg-navy', 'text-white'));
-      btn.classList.add('bg-navy', 'text-white');
+      filters.forEach((b) => b.classList.remove('bg-black', 'text-white'));
+      btn.classList.add('bg-black', 'text-white');
 
       // Show/hide items
       items.forEach((item) => {
@@ -154,5 +154,5 @@ const projects = [
   });
 
   // Set initial active
-  filters[0]?.classList.add('bg-navy', 'text-white');
+  filters[0]?.classList.add('bg-black', 'text-white');
 </script>
