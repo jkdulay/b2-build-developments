@@ -3,10 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import Lightbox from '../components/Lightbox.astro';
 import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
 import { getProjectBySlug } from '../data/projects';
 
 const brooklyn = getProjectBySlug('brooklyn');
+// Featured photos for the showhome 3-up gallery (open in lightbox)
+const featurePhotos = [
+  { src: '/photos/brooklyn/front-exterior-day.jpg',  alt: 'The Brooklyn — front exterior',         caption: 'Front Exterior' },
+  { src: '/photos/brooklyn/kitchen-cook-area.jpg',  alt: "The Brooklyn — chef's kitchen",         caption: "Chef's Kitchen" },
+  { src: '/photos/brooklyn/wine-cellar.jpg',        alt: 'The Brooklyn — glass wine display',     caption: 'Glass Wine Display' },
+];
 ---
 
 <Layout
@@ -41,30 +48,54 @@ const brooklyn = getProjectBySlug('brooklyn');
       <div class="grid lg:grid-cols-3 gap-4 h-auto lg:h-[540px]">
         <!-- Large hero left (front exterior) -->
         <div class="lg:col-span-2 h-64 lg:h-full overflow-hidden">
-          <img
-            src="/photos/brooklyn/front-exterior-day.jpg"
-            alt="The Brooklyn — front exterior"
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          />
+          <button
+            type="button"
+            class="block w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-gold"
+            aria-label="Open image 1: The Brooklyn front exterior"
+            onclick="document.getElementById('showhome-lb').openLightbox(0)"
+          >
+            <img
+              src={featurePhotos[0].src}
+              alt={featurePhotos[0].alt}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </button>
         </div>
         <!-- Two stacked right -->
         <div class="grid grid-rows-2 gap-4 h-64 lg:h-full">
           <div class="overflow-hidden">
-            <img
-              src="/photos/brooklyn/kitchen-cook-area.jpg"
-              alt="The Brooklyn — chef's kitchen"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
+            <button
+              type="button"
+              class="block w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-gold"
+              aria-label="Open image 2: The Brooklyn chef's kitchen"
+              onclick="document.getElementById('showhome-lb').openLightbox(1)"
+            >
+              <img
+                src={featurePhotos[1].src}
+                alt={featurePhotos[1].alt}
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </button>
           </div>
           <div class="overflow-hidden">
-            <img
-              src="/photos/brooklyn/wine-cellar.jpg"
-              alt="The Brooklyn — glass wine display"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
+            <button
+              type="button"
+              class="block w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-gold"
+              aria-label="Open image 3: The Brooklyn glass wine display"
+              onclick="document.getElementById('showhome-lb').openLightbox(2)"
+            >
+              <img
+                src={featurePhotos[2].src}
+                alt={featurePhotos[2].alt}
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </button>
           </div>
         </div>
       </div>
+
+      <!-- Full Brooklyn gallery (hidden, opened from lightbox when user navigates past the 3 featured photos) -->
+      <!-- The lightbox itself uses the FULL project gallery as its photo source. -->
     </div>
   </section>
 
@@ -152,6 +183,11 @@ const brooklyn = getProjectBySlug('brooklyn');
       </a>
     </div>
   </section>
+
+  <!-- LIGHTBOX: opens from the 3 featured thumbs above. Spans only the same 3 photos
+       (front exterior, chef's kitchen, glass wine display). For the full 14-photo
+       Brooklyn gallery, click "View Full Project Details" below. -->
+  <Lightbox id="showhome-lb" photos={featurePhotos} />
 
   <Footer />
 </Layout>

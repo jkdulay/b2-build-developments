@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Lightbox from '../../components/Lightbox.astro';
 import { ArrowLeft, CheckCircle2 } from '@lucide/astro';
 import { projects, getProjectBySlug } from '../../data/projects';
 
@@ -118,16 +119,21 @@ const description = project.shortDescription;
         </h2>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {project.gallery.map((photo) => (
+          {project.gallery.map((photo, i) => (
             <figure class="overflow-hidden bg-black/5 group">
-              <div class="aspect-[4/3] overflow-hidden">
+              <button
+                type="button"
+                class="block w-full text-left aspect-[4/3] overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-gold"
+                aria-label={`Open image ${i + 1}: ${photo.alt}`}
+                onclick={`document.getElementById('gallery-lb').openLightbox(${i})`}
+              >
                 <img
                   src={photo.src}
                   alt={photo.alt}
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-              </div>
+              </button>
               {photo.caption && (
                 <figcaption class="text-black/60 text-xs tracking-[0.15em] uppercase mt-3 px-1">
                   {photo.caption}
@@ -139,6 +145,8 @@ const description = project.shortDescription;
       </div>
     </section>
   )}
+
+  <Lightbox id="gallery-lb" photos={project.gallery} />
 
   <!-- PROJECT INFO -->
   <section class="py-16 bg-white border-t border-black/10">

@@ -1,0 +1,243 @@
+---
+/**
+ * Lightbox — full-screen photo viewer.
+ *
+ * Props:
+ *   id: unique DOM id so multiple lightboxes on the same page don't collide (default: 'lightbox')
+ *   photos: array of { src, alt, caption? } — the same shape used by ProjectPhoto in data/projects.ts
+ *
+ * Usage:
+ *   <Lightbox id="brooklyn-lb" photos={project.gallery} />
+ *   <button onclick={`document.getElementById('brooklyn-lb').openLightbox(0)`}>
+ *     <img src={photo.src} />
+ *   </button>
+ *
+ * Keyboard: ESC closes, Left/Right navigates, Tab cycles controls.
+ * No external dependencies — uses native <dialog>.
+ */
+export interface LightboxPhoto {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  id?: string;
+  photos: LightboxPhoto[];
+}
+
+const { id = 'lightbox', photos = [] } = Astro.props;
+const photosJson = JSON.stringify(photos);
+---
+
+<dialog id={id} class="lightbox-dialog" aria-label="Image viewer">
+  <div class="lightbox-stage" data-stage>
+    <img class="lightbox-img" data-img alt="" />
+    <button class="lightbox-btn lightbox-prev" data-prev aria-label="Previous image">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <button class="lightbox-btn lightbox-next" data-next aria-label="Next image">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+    <button class="lightbox-btn lightbox-close" data-close aria-label="Close">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div class="lightbox-caption" data-caption></div>
+  <div class="lightbox-counter" data-counter></div>
+</dialog>
+
+<style>
+  .lightbox-dialog {
+    /* Native dialog reset */
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: white;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  .lightbox-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(4px);
+  }
+  .lightbox-dialog[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-img {
+    max-width: min(96vw, 1600px);
+    max-height: 84vh;
+    object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .lightbox-btn {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    backdrop-filter: blur(6px);
+    z-index: 2;
+  }
+  .lightbox-btn:hover {
+    background: rgba(197, 160, 89, 0.85);
+    border-color: rgba(197, 160, 89, 1);
+  }
+  .lightbox-btn:focus-visible {
+    outline: 2px solid #c5a059;
+    outline-offset: 2px;
+  }
+  .lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+  .lightbox-close {
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+  }
+  .lightbox-caption {
+    position: fixed;
+    bottom: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: 80vw;
+    padding: 0 24px;
+  }
+  .lightbox-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 640px) {
+    .lightbox-btn {
+      width: 40px;
+      height: 40px;
+    }
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+    .lightbox-close { top: 12px; right: 12px; }
+    .lightbox-caption { bottom: 72px; font-size: 11px; }
+  }
+</style>
+
+<script is:inline define:vars={{ id, photosJson }}>
+  (function () {
+    const PHOTOS = JSON.parse(photosJson);
+    const dialog = document.getElementById(id);
+    if (!dialog) return;
+
+    const imgEl      = dialog.querySelector('[data-img]');
+    const captionEl  = dialog.querySelector('[data-caption]');
+    const counterEl  = dialog.querySelector('[data-counter]');
+    const prevBtn    = dialog.querySelector('[data-prev]');
+    const nextBtn    = dialog.querySelector('[data-next]');
+    const closeBtn   = dialog.querySelector('[data-close]');
+    const stage      = dialog.querySelector('[data-stage]');
+
+    let current = 0;
+    let lastFocus = null;
+
+    function render(i) {
+      if (!PHOTOS.length) return;
+      current = ((i % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
+      const p = PHOTOS[current];
+      imgEl.src = p.src;
+      imgEl.alt = p.alt || '';
+      captionEl.textContent = p.caption || '';
+      captionEl.style.display = p.caption ? '' : 'none';
+      counterEl.textContent = PHOTOS.length > 1 ? (current + 1) + ' / ' + PHOTOS.length : '';
+      // Hide nav buttons when only one photo
+      const single = PHOTOS.length <= 1;
+      prevBtn.style.display = single ? 'none' : '';
+      nextBtn.style.display = single ? 'none' : '';
+    }
+
+    function open(i) {
+      if (!PHOTOS.length) return;
+      lastFocus = document.activeElement;
+      render(i);
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute('open', '');
+      }
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      dialog.close();
+      document.body.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+    function next() { render(current + 1); }
+    function prev() { render(current - 1); }
+
+    // Expose for inline onclick="document.getElementById('...').openLightbox(0)"
+    dialog.openLightbox = open;
+    dialog.closeLightbox = close;
+
+    // Wire controls
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+
+    // Click backdrop (outside stage image) to close
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) close();
+    });
+    stage.addEventListener('click', (e) => {
+      // click on the empty stage area closes; click on image or nav buttons does NOT
+      if (e.target === stage) close();
+    });
+
+    // Keyboard
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); if (PHOTOS.length > 1) next(); }
+      else if (e.key === 'ArrowLeft')  { e.preventDefault(); if (PHOTOS.length > 1) prev(); }
+    });
+
+    // Preload neighbor images when opened
+    dialog.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+  })();
+</script>
