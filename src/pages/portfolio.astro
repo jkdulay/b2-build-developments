@@ -2,47 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import { ArrowRight } from '@lucide/astro';
+import { projects, projectCategories } from '../data/projects';
 
-const projects = [
-  {
-    id: 'brooklyn',
-    category: 'CUSTOM HOMES',
-    title: 'The Brooklyn',
-    location: '2220 8 Street NE, Calgary',
-    year: '2026',
-    image: '/photos/butler/butler-1.jpg', // TODO: Replace with Brooklyn photos
-    size: 'CUSTOM BUILD',
-  },
-  {
-    id: 'villa-castano',
-    category: 'CUSTOM HOMES',
-    title: 'Villa Castano',
-    location: '442 / 444 27 Ave NW, Calgary',
-    year: '2026',
-    image: '/photos/mount-pleasant/mount-pleasant-1.jpg', // TODO: Replace with Villa Castano photos
-    size: 'DUPLEX RESIDENCES',
-  },
-  {
-    id: 'tux',
-    category: 'INFILL HOMES',
-    title: 'The Tux',
-    location: '212 / 214 26 Ave NW, Calgary',
-    year: '2026',
-    image: '/photos/tuxedo/tuxedo-1.jpg', // TODO: Add The Tux interior + hero photos
-    size: 'DUPLEX RESIDENCES',
-  },
-  {
-    id: 'butler',
-    category: 'CUSTOM HOMES',
-    title: 'The Butler',
-    location: '36 Butler Crescent NW, Calgary',
-    year: '2025',
-    image: '/photos/butler/butler-1.jpg',
-    size: 'LUXURY BUNGALOW · SOLD',
-  },
-];
+const allFilters = ['ALL PROJECTS', ...projectCategories];
 ---
 
 <Layout
@@ -71,7 +34,7 @@ const projects = [
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <!-- Filter Nav -->
       <div class="flex flex-wrap gap-3 mb-12">
-        {['ALL PROJECTS', 'CUSTOM HOMES', 'INFILL HOMES', 'RENOVATIONS'].map((filter) => (
+        {allFilters.map((filter) => (
           <button
             data-filter={filter}
             class="portfolio-filter text-xs tracking-[0.2em] uppercase px-5 py-2.5 border border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300 active:bg-black active:text-white"
@@ -84,16 +47,23 @@ const projects = [
       <!-- Grid -->
       <div id="portfolio-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <div
-            class="portfolio-item group overflow-hidden bg-white"
+          <a
+            href={`/projects/${project.slug}`}
+            class="portfolio-item group overflow-hidden bg-white block"
             data-category={project.category}
           >
             <div class="relative h-64 overflow-hidden">
               <img
-                src={project.image}
-                alt={project.title}
+                src={project.cardPhoto.src}
+                alt={project.cardPhoto.alt}
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
+              {project.badge && (
+                <div class="absolute top-4 left-4 bg-gold text-white text-xs font-body font-medium tracking-[0.15em] uppercase px-4 py-2">
+                  {project.badge}
+                </div>
+              )}
               <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                 <span class="text-white text-xs tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-4 py-2">
                   VIEW PROJECT
@@ -102,10 +72,10 @@ const projects = [
             </div>
             <div class="p-6">
               <p class="text-gold text-xs tracking-[0.2em] uppercase mb-1">{project.category}</p>
-              <h3 class="font-display text-xl text-black mb-1">{project.title}</h3>
+              <h3 class="font-display text-xl text-black mb-1">{project.name}</h3>
               <p class="text-black/70 text-xs">{project.location} &nbsp;&bull;&nbsp; {project.year}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

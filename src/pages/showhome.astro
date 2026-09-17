@@ -4,6 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
+import { getProjectBySlug } from '../data/projects';
+
+const brooklyn = getProjectBySlug('brooklyn');
 ---
 
 <Layout
@@ -12,15 +15,23 @@ import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
 >
   <Header />
 
-  <!-- PAGE HERO -->
-  <!-- TODO: Replace static image with autoplay/muted video slide per spec.
-       Drive folder with hero video: https://drive.google.com/drive/u/8/folders/1WJjQYshknXM6lfETNJ-8c30OKrAsWPl1 -->
+  <!-- PAGE HERO with autoplay video (per spec: "Select hero page Video slide") -->
+  <!-- TODO: Replace video with The Brooklyn hero video when Drive folder is supplied.
+       Drive: https://drive.google.com/drive/u/8/folders/1WJjQYshknXM6lfETNJ-8c30OKrAsWPl1
+       Currently using the Butler 4K MP4 as the only available video asset. -->
   <section class="relative h-[70vh] min-h-[480px] bg-black flex items-end overflow-hidden">
-    <img
-      src="/photos/butler/butler-1.jpg"
-      alt="The Brooklyn — B2 Build showhome"
+    <video
       class="absolute inset-0 w-full h-full object-cover opacity-60"
-    />
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/photos/brooklyn/brooklyn-front.jpg"
+    >
+      <source src="/photos/butler/butler-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
       <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">FEATURE HOME</p>
       <h1 class="font-display text-4xl lg:text-6xl text-white">
@@ -30,18 +41,15 @@ import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
     </div>
   </section>
 
-  <!-- GALLERY: 1 large + 2 stacked -->
-  <!-- TODO: Replace gallery with The Brooklyn photos. Spec:
-       - Switch placement of front-exterior and kitchen photos
-       - Keep the hero photo (large, left) as-is once Brooklyn assets are dropped in
-       Placeholder arrangement below: front exterior (large, left) + kitchen (top right) + detail (bottom right) -->
+  <!-- GALLERY: 1 large + 2 stacked (per spec: front exterior large, kitchen stacked, keep hero photo) -->
+  <!-- TODO: Replace gallery with The Brooklyn photos when Drive folder is supplied. -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid lg:grid-cols-3 gap-4 h-auto lg:h-[540px]">
         <!-- Large hero left (front exterior) -->
         <div class="lg:col-span-2 h-64 lg:h-full overflow-hidden">
           <img
-            src="/photos/butler/butler-1.jpg"
+            src="/photos/brooklyn/brooklyn-front.jpg"
             alt="The Brooklyn front exterior"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />
@@ -50,15 +58,15 @@ import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
         <div class="grid grid-rows-2 gap-4 h-64 lg:h-full">
           <div class="overflow-hidden">
             <img
-              src="/photos/butler/butler-2.jpg"
+              src="/photos/brooklyn/brooklyn-kitchen.jpg"
               alt="The Brooklyn kitchen"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
           <div class="overflow-hidden">
             <img
-              src="/photos/butler/butler-3.jpg"
-              alt="The Brooklyn detail"
+              src="/photos/brooklyn/brooklyn-basement.jpg"
+              alt="The Brooklyn basement lounge"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
@@ -123,19 +131,19 @@ import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
         centered
       />
       <div class="space-y-5 text-black/75 text-base leading-relaxed">
-        <p>
-          The Brooklyn is a refined contemporary residence nestled within one of Calgary's most established golf course communities, where modern sophistication meets timeless warmth. Thoughtfully crafted with striking architectural details and rich Bastille flooring throughout, the home delivers an elevated yet inviting living experience.
-        </p>
-        <p>
-          A sleek linear fireplace anchors the living space, while custom built-in seating adds warmth and functionality. The kitchen features premium cabinetry, integrated high-end appliances, and a clean modern aesthetic designed for both everyday living and effortless entertaining.
-        </p>
-        <p>
-          Natural light floods through the arched windows, flowing seamlessly from the living room into the kitchen and dining space. Upstairs, two skylights overlook the serene interior, enhancing the home's open and connected atmosphere.
-        </p>
-        <p>
-          Surrounded by mature landscapes and the character of Calgary's prestigious golf course community, The Brooklyn is a true expression of purposeful design and modern craftsmanship.
-        </p>
+        {brooklyn?.longDescription.map((para) => (
+          <p>{para}</p>
+        ))}
       </div>
+    </div>
+  </section>
+
+  <!-- LINK TO FULL PROJECT PAGE -->
+  <section class="py-12 bg-white border-t border-black/10">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <a href="/projects/brooklyn" class="btn-outline-black inline-flex">
+        VIEW FULL PROJECT DETAILS
+      </a>
     </div>
   </section>
 
@@ -149,7 +157,7 @@ import { LayoutGrid, Star, BedDouble, Bath, Home } from '@lucide/astro';
       <p class="text-white/60 text-sm mb-10 max-w-lg mx-auto">
         Reach out to schedule a private tour of our latest custom build in Winston Heights.
       </p>
-      <a href="tel:+140****2702" class="btn-gold text-base px-8 py-4">
+      <a href="tel:+14036192702" class="btn-gold text-base px-8 py-4">
         CALL (403) 619-2702
       </a>
     </div>
