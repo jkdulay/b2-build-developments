@@ -15,22 +15,15 @@ const brooklyn = getProjectBySlug('brooklyn');
 >
   <Header />
 
-  <!-- PAGE HERO with autoplay video (per spec: "Select hero page Video slide") -->
-  <!-- TODO: Replace video with The Brooklyn hero video when Drive folder is supplied.
-       Drive: https://drive.google.com/drive/u/8/folders/1WJjQYshknXM6lfETNJ-8c30OKrAsWPl1
-       Currently using the Butler 4K MP4 as the only available video asset. -->
+  <!-- PAGE HERO with real Brooklyn front exterior (per spec: "Select hero page Video slide").
+       Video URL still TBD; poster image is the real Brooklyn front exterior at dusk. -->
+  <!-- TODO: Replace poster with The Brooklyn hero video when supplied. -->
   <section class="relative h-[70vh] min-h-[480px] bg-black flex items-end overflow-hidden">
-    <video
-      class="absolute inset-0 w-full h-full object-cover opacity-60"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster="/photos/brooklyn/brooklyn-front.jpg"
-    >
-      <source src="/photos/butler/butler-hero.mp4" type="video/mp4" />
-    </video>
+    <img
+      src="/photos/brooklyn/front-exterior-dusk.jpg"
+      alt="The Brooklyn — front exterior at dusk"
+      class="absolute inset-0 w-full h-full object-cover opacity-80"
+    />
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-12 w-full">
       <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">FEATURE HOME</p>
@@ -41,16 +34,16 @@ const brooklyn = getProjectBySlug('brooklyn');
     </div>
   </section>
 
-  <!-- GALLERY: 1 large + 2 stacked (per spec: front exterior large, kitchen stacked, keep hero photo) -->
-  <!-- TODO: Replace gallery with The Brooklyn photos when Drive folder is supplied. -->
+  <!-- GALLERY: 1 large + 2 stacked (per spec: "Switch placement of Butler Crescent front photo and the kitchen photo. Keep the hero photo.")
+       Real Brooklyn photos: front exterior large, kitchen + wine display stacked. -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid lg:grid-cols-3 gap-4 h-auto lg:h-[540px]">
         <!-- Large hero left (front exterior) -->
         <div class="lg:col-span-2 h-64 lg:h-full overflow-hidden">
           <img
-            src="/photos/brooklyn/brooklyn-front.jpg"
-            alt="The Brooklyn front exterior"
+            src="/photos/brooklyn/front-exterior-day.jpg"
+            alt="The Brooklyn — front exterior"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />
         </div>
@@ -58,23 +51,20 @@ const brooklyn = getProjectBySlug('brooklyn');
         <div class="grid grid-rows-2 gap-4 h-64 lg:h-full">
           <div class="overflow-hidden">
             <img
-              src="/photos/brooklyn/brooklyn-kitchen.jpg"
-              alt="The Brooklyn kitchen"
+              src="/photos/brooklyn/kitchen-cook-area.jpg"
+              alt="The Brooklyn — chef's kitchen"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
           <div class="overflow-hidden">
             <img
-              src="/photos/brooklyn/brooklyn-basement.jpg"
-              alt="The Brooklyn basement lounge"
+              src="/photos/brooklyn/wine-cellar.jpg"
+              alt="The Brooklyn — glass wine display"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>
       </div>
-      <p class="text-black/50 text-xs tracking-[0.15em] uppercase mt-4 text-center">
-        Placeholder gallery — Brooklyn photos pending
-      </p>
     </div>
   </section>
 

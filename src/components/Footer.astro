@@ -11,30 +11,38 @@ import { MapPin, Phone, Mail, Clock } from '@lucide/astro';
         <h2 class="font-display text-3xl lg:text-4xl text-white mb-2 tracking-wide">Let's Build Together</h2>
         <p class="text-white/70 text-sm tracking-wide mb-10 uppercase">Ready to start your custom home journey?</p>
 
-        <form class="flex flex-col gap-5" onsubmit="handleSubmit(event)">
+        <form id="contact-form" class="flex flex-col gap-5">
           <div class="grid sm:grid-cols-2 gap-5">
             <input
               type="text"
+              name="firstName"
               placeholder="FIRST NAME"
+              required
               class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
             />
             <input
               type="text"
+              name="lastName"
               placeholder="LAST NAME"
+              required
               class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
             />
           </div>
           <input
             type="email"
+            name="email"
             placeholder="EMAIL ADDRESS"
+            required
             class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
           />
           <input
             type="tel"
+            name="phone"
             placeholder="PHONE NUMBER"
             class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors"
           />
           <textarea
+            name="message"
             rows="4"
             placeholder="TELL US ABOUT YOUR PROJECT"
             class="w-full bg-white/5 border border-white/20 px-4 py-3 text-xs tracking-[0.15em] uppercase placeholder-white/40 focus:outline-none focus:border-gold transition-colors resize-none"
@@ -43,7 +51,9 @@ import { MapPin, Phone, Mail, Clock } from '@lucide/astro';
             SEND MESSAGE
           </button>
         </form>
-        <p id="form-success" class="hidden text-gold text-sm mt-4 tracking-wide">Thank you — we'll be in touch shortly.</p>
+        <p id="form-success" class="hidden text-gold text-sm mt-4 tracking-wide">
+          Thanks — your email client should have opened with your message ready to send to <strong>gurbinder@b2buildltd.com</strong>. If it didn&apos;t open, please email us directly.
+        </p>
       </div>
 
       <!-- Right: Info + Map -->
@@ -116,11 +126,35 @@ import { MapPin, Phone, Mail, Clock } from '@lucide/astro';
 </footer>
 
 <script>
-  function handleSubmit(e: Event) {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const success = document.getElementById('form-success');
-    form.style.display = 'none';
-    if (success) success.classList.remove('hidden');
+  // mailto-based form: opens the visitor's email client with a pre-filled message
+  // to gurbinder@b2buildltd.com. Works on every device, no third-party service,
+  // no DNS or SMTP credentials required.
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const success = document.getElementById('form-success');
+  if (form) {
+    form.addEventListener('submit', (e: Event) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const firstName = (data.get('firstName') || '').toString().trim();
+      const lastName  = (data.get('lastName')  || '').toString().trim();
+      const email     = (data.get('email')     || '').toString().trim();
+      const phone     = (data.get('phone')     || '').toString().trim();
+      const message   = (data.get('message')   || '').toString().trim();
+      const name = [firstName, lastName].filter(Boolean).join(' ') || 'Website visitor';
+      const subject = `B2 Build enquiry — ${name}`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone || '(not provided)'}`,
+        '',
+        'Project details:',
+        message || '(no details provided)',
+        '',
+        '— Sent from b2builddevelopments.com contact form',
+      ].join('\n');
+      const mailto = `mailto:gurbinder@b2buildltd.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      if (success) success.classList.remove('hidden');
+    });
   }
 </script>

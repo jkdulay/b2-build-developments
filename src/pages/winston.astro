@@ -260,16 +260,16 @@ import {
               Be the first to receive updates, renderings, floor plans, pricing details, and private showing opportunities.
             </p>
 
-            <form class="flex flex-col gap-3" onsubmit="handleEarlyAccess(event)">
-              <input type="text" placeholder="Full Name" class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
-              <input type="email" placeholder="Email Address" class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
-              <input type="tel" placeholder="Phone Number" class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
-              <input type="text" placeholder="Message (Optional)" class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+            <form id="early-access-form" class="flex flex-col gap-3">
+              <input type="text" name="fullName" placeholder="Full Name" required class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <input type="email" name="email" placeholder="Email Address" required class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <input type="tel" name="phone" placeholder="Phone Number" class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <input type="text" name="message" placeholder="Message (Optional)" class="w-full bg-white px-4 py-3 text-sm text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-gold" />
               <button type="submit" class="mt-2 w-full bg-gold text-white font-semibold uppercase tracking-[0.15em] text-sm py-3.5 hover:bg-white hover:text-black transition-colors duration-300">
                 Request Early Access
               </button>
             </form>
-            <p id="early-access-success" class="hidden text-gold text-sm mt-4">Thank you — we'll be in touch shortly.</p>
+            <p id="early-access-success" class="hidden text-gold text-sm mt-4">Thanks — your email client should have opened with your request ready to send to <strong>gurbinder@b2buildltd.com</strong>.</p>
           </div>
         </div>
       </div>
@@ -374,11 +374,32 @@ import {
 </Layout>
 
 <script>
-  function handleEarlyAccess(e: Event) {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const success = document.getElementById('early-access-success');
-    form.style.display = 'none';
-    if (success) success.classList.remove('hidden');
+  // mailto-based Early Access form: opens visitor's email client with pre-filled
+  // message to gurbinder@b2buildltd.com. No backend required.
+  const form = document.getElementById('early-access-form') as HTMLFormElement | null;
+  const success = document.getElementById('early-access-success');
+  if (form) {
+    form.addEventListener('submit', (e: Event) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const fullName = (data.get('fullName') || '').toString().trim();
+      const email    = (data.get('email')    || '').toString().trim();
+      const phone    = (data.get('phone')    || '').toString().trim();
+      const message  = (data.get('message')  || '').toString().trim();
+      const subject = `Winston Heights — Early Access Request — ${fullName || 'Website visitor'}`;
+      const body = [
+        `Name: ${fullName || '(not provided)'}`,
+        `Email: ${email}`,
+        `Phone: ${phone || '(not provided)'}`,
+        '',
+        'Message:',
+        message || '(no message)',
+        '',
+        '— Sent from b2builddevelopments.com/winston Early Access form',
+      ].join('\n');
+      const mailto = `mailto:gurbinder@b2buildltd.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      if (success) success.classList.remove('hidden');
+    });
   }
 </script>

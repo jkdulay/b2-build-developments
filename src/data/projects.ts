@@ -13,18 +13,18 @@ export interface Project {
   category: string;
   badge?: string;             // e.g. "SOLD" — overlay on cards
   tagline?: string;           // small descriptor shown on card below category
-  location: string;
-  year: string;
-  shortDescription: string;   // 1-2 sentences for portfolio cards
-  longDescription: string[];  // paragraphs for detail page (from PDF)
-  highlights: string[];       // bullets
-  cardPhoto: ProjectPhoto;
-  heroPhoto: ProjectPhoto;
-  gallery: ProjectPhoto[];
-  videoUrl?: string;          // optional hero video
+  location: string;        // "2220 8 Street NE, Calgary"
+  year: string;            // "2026"
+  shortDescription: string;// 1 sentence for portfolio card
+  longDescription: string[]; // paragraphs for detail page (from PDF)
+  highlights: string[];    // bullets (from PDF)
+  heroPhoto: ProjectPhoto; // for detail page hero
+  cardPhoto: ProjectPhoto;  // for portfolio card
+  gallery: ProjectPhoto[];  // all photos for detail page
+  videoUrl?: string;       // hero video for Brooklyn only
   // Backwards-compat aliases for existing portfolio card rendering:
-  title: string;              // = name
-  image: string;              // = cardPhoto.src
+  title: string;            // = name
+  image: string;            // = cardPhoto.src
 }
 
 export const projects: Project[] = [
@@ -37,33 +37,30 @@ export const projects: Project[] = [
     tagline: 'FEATURE HOME',
     location: '2220 8 Street NE, Calgary',
     year: '2026',
-    image: '/photos/brooklyn/brooklyn-front.jpg',
+    image: '/photos/brooklyn/front-exterior-dusk.jpg',
     cardPhoto: {
-      src: '/photos/brooklyn/brooklyn-front.jpg',
-      alt: 'The Brooklyn — front exterior',
+      src: '/photos/brooklyn/front-exterior-dusk.jpg',
+      alt: 'The Brooklyn — front exterior at dusk',
     },
     heroPhoto: {
-      src: '/photos/brooklyn/brooklyn-front.jpg',
-      alt: 'The Brooklyn — front exterior',
+      src: '/photos/brooklyn/front-exterior-dusk.jpg',
+      alt: 'The Brooklyn — front exterior at dusk',
     },
-    videoUrl: '/photos/butler/butler-hero.mp4', // TODO: replace with Brooklyn hero video when Drive folder is supplied
+    videoUrl: '/photos/butler/butler-hero.mp4', // 4K MP4 from Butler source — only video asset on hand
     gallery: [
-      {
-        src: '/photos/brooklyn/brooklyn-front.jpg',
-        alt: 'The Brooklyn — front exterior',
-        caption: 'Front exterior',
-      },
-      {
-        src: '/photos/brooklyn/brooklyn-kitchen.jpg',
-        alt: 'The Brooklyn — kitchen',
-        caption: 'Chef-inspired kitchen',
-      },
-      {
-        src: '/photos/brooklyn/brooklyn-basement.jpg',
-        alt: 'The Brooklyn — basement lounge',
-        caption: 'Finished basement lounge',
-      },
-      // TODO: add real Brooklyn photos when Drive folder is supplied
+      { src: '/photos/brooklyn/front-exterior-day.jpg',  alt: 'The Brooklyn — front exterior',           caption: 'Front exterior' },
+      { src: '/photos/brooklyn/location-aerial.jpg',      alt: 'The Brooklyn — adjacent golf course',     caption: 'Adjacent to Winston Heights Golf Course' },
+      { src: '/photos/brooklyn/aerial-downtown.jpg',      alt: 'The Brooklyn — proximity to downtown',     caption: '10 minutes to downtown Calgary' },
+      { src: '/photos/brooklyn/entryway.jpg',             alt: 'The Brooklyn — entryway',                 caption: 'Foyer with herringbone flooring' },
+      { src: '/photos/brooklyn/living-room.jpg',          alt: 'The Brooklyn — main living room',         caption: 'Open-concept living' },
+      { src: '/photos/brooklyn/living-fireplace.jpg',     alt: 'The Brooklyn — living room fireplace',    caption: 'Linear gas fireplace with custom built-ins' },
+      { src: '/photos/brooklyn/kitchen-staircase.jpg',    alt: 'The Brooklyn — kitchen with staircase',   caption: 'Architectural staircase off the kitchen' },
+      { src: '/photos/brooklyn/kitchen-cook-area.jpg',    alt: 'The Brooklyn — chef\'s kitchen',          caption: 'Sage green cabinetry, black marble hood' },
+      { src: '/photos/brooklyn/kitchen-island.jpg',       alt: 'The Brooklyn — kitchen island',           caption: 'Light oak island with waterfall counter' },
+      { src: '/photos/brooklyn/kitchen-arched.jpg',       alt: 'The Brooklyn — kitchen with arched windows', caption: 'Flowing into living with arched windows' },
+      { src: '/photos/brooklyn/wine-cellar.jpg',          alt: 'The Brooklyn — glass wine display',       caption: 'Glass-enclosed wine display' },
+      { src: '/photos/brooklyn/pantry.jpg',               alt: 'The Brooklyn — walk-in pantry',           caption: 'Walk-in pantry' },
+      { src: '/photos/brooklyn/balcony-view.jpg',         alt: 'The Brooklyn — private balcony',          caption: 'Private balcony with skyline view' },
     ],
     shortDescription:
       'A refined contemporary residence in Calgary\'s golf course community — modern sophistication meets timeless warmth.',
@@ -80,6 +77,8 @@ export const projects: Project[] = [
       'Premium cabinetry and integrated high-end appliances',
       'Arched windows flooding the main floor with natural light',
       'Two skylights enhancing the open interior',
+      'Glass-enclosed wine display',
+      'Private balcony with skyline views',
     ],
   },
 
@@ -102,17 +101,17 @@ export const projects: Project[] = [
       alt: 'Villa Castano — dusk exterior',
     },
     gallery: [
-      {
-        src: '/photos/villa-castano/villa-castano-dusk.jpg',
-        alt: 'Villa Castano — exterior at dusk',
-        caption: 'Exterior at dusk',
-      },
-      {
-        src: '/photos/villa-castano/villa-castano-night.jpg',
-        alt: 'Villa Castano — exterior at night',
-        caption: 'Evening exterior',
-      },
-      // TODO: add interior Residence One + Residence Two photos
+      { src: '/photos/villa-castano/villa-castano-dusk.jpg',  alt: 'Villa Castano — exterior at dusk', caption: 'Exterior at dusk' },
+      { src: '/photos/villa-castano/villa-castano-night.jpg', alt: 'Villa Castano — exterior at night', caption: 'Evening exterior' },
+      // Design concept mood boards from Raj/PJ
+      { src: '/photos/villa-castano/mood-kitchen.jpg',         alt: 'Villa Castano — kitchen concept',  caption: 'Kitchen concept — sage shaker with brass accents' },
+      { src: '/photos/villa-castano/mood-interior-design.jpg', alt: 'Villa Castano — interior design',  caption: 'Interior design direction' },
+      { src: '/photos/villa-castano/mood-lighting.jpg',        alt: 'Villa Castano — lighting selections', caption: 'Lighting selections' },
+      { src: '/photos/villa-castano/mood-selections-overview.jpg', alt: 'Villa Castano — selections overview', caption: 'Material & finish selections' },
+      { src: '/photos/villa-castano/mood-upper-floor.jpg',     alt: 'Villa Castano — upper floor concept', caption: 'Upper floor concept' },
+      { src: '/photos/villa-castano/mood-lower-floor.jpg',     alt: 'Villa Castano — lower floor concept', caption: 'Lower floor concept' },
+      { src: '/photos/villa-castano/mood-powder-room.jpg',    alt: 'Villa Castano — powder room concept', caption: 'Powder room concept' },
+      { src: '/photos/villa-castano/mood-ensuite.jpg',         alt: 'Villa Castano — ensuite concept',  caption: 'Ensuite concept' },
     ],
     shortDescription:
       'Contemporary Mount Pleasant duplex residences — modern architecture with the character of one of Calgary\'s most desirable inner-city communities.',
@@ -126,6 +125,8 @@ export const projects: Project[] = [
       'Designer kitchen with custom cabinetry and integrated appliances',
       'Sleek fireplace anchoring the main living area',
       'Spa-inspired primary retreat with custom millwork',
+      'Sage green shaker kitchen with brass/gold accents',
+      'Calacatta marble countertops with gold veining',
     ],
   },
 
@@ -148,11 +149,8 @@ export const projects: Project[] = [
       alt: 'The Tux — exterior',
     },
     gallery: [
-      {
-        src: '/photos/tux/tux-exterior.jpg',
-        alt: 'The Tux — exterior',
-        caption: 'Exterior',
-      },
+      { src: '/photos/tux/tux-exterior.jpg',     alt: 'The Tux — exterior',     caption: 'Exterior' },
+      { src: '/photos/tux/mood-lower-level.jpg', alt: 'The Tux — lower level concept', caption: 'Lower level — moody wet bar design' },
       // TODO: add The Tux interior photos when supplied
     ],
     shortDescription:
@@ -167,6 +165,7 @@ export const projects: Project[] = [
       'Premium kitchen with integrated appliances and central island',
       'Sleek fireplace anchoring the main living area',
       'Spa-inspired primary retreat',
+      'Lower level with moody wet bar — smoked glass pendants, charcoal basketweave tile, gold accents',
     ],
   },
 
@@ -190,36 +189,12 @@ export const projects: Project[] = [
       alt: 'The Butler — front exterior',
     },
     gallery: [
-      {
-        src: '/photos/butler/butler-1.jpg',
-        alt: 'The Butler — front exterior',
-        caption: 'Front exterior',
-      },
-      {
-        src: '/photos/butler/butler-2.jpg',
-        alt: 'The Butler — kitchen',
-        caption: 'Vaulted-ceiling kitchen with waterfall island',
-      },
-      {
-        src: '/photos/butler/butler-3.jpg',
-        alt: 'The Butler — basement lounge',
-        caption: 'Finished basement wet bar',
-      },
-      {
-        src: '/photos/butler/butler-4.jpg',
-        alt: 'The Butler — main kitchen',
-        caption: 'Open-concept main kitchen',
-      },
-      {
-        src: '/photos/butler/butler-5.jpg',
-        alt: 'The Butler — chef\'s kitchen',
-        caption: 'Chef\'s kitchen with arched alcove',
-      },
-      {
-        src: '/photos/butler/butler-6.jpg',
-        alt: 'The Butler — kitchen and living',
-        caption: 'Kitchen flowing into living area',
-      },
+      { src: '/photos/butler/butler-1.jpg', alt: 'The Butler — front exterior',          caption: 'Front exterior' },
+      { src: '/photos/butler/butler-2.jpg', alt: 'The Butler — kitchen',                 caption: 'Vaulted-ceiling kitchen with waterfall island' },
+      { src: '/photos/butler/butler-3.jpg', alt: 'The Butler — basement lounge',         caption: 'Finished basement wet bar' },
+      { src: '/photos/butler/butler-4.jpg', alt: 'The Butler — main kitchen',            caption: 'Open-concept main kitchen' },
+      { src: '/photos/butler/butler-5.jpg', alt: 'The Butler — chef\'s kitchen',          caption: 'Chef\'s kitchen with arched alcove' },
+      { src: '/photos/butler/butler-6.jpg', alt: 'The Butler — kitchen and living',      caption: 'Kitchen flowing into living area' },
     ],
     shortDescription:
       'A luxury contemporary bungalow in Brentwood — clean lines, warm textures, and timeless character. SOLD.',
