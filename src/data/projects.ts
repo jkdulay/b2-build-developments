@@ -183,14 +183,14 @@ export const projects: Project[] = [
     image: '/photos/butler/butler-2.jpg',
     cardPhoto: {
       src: '/photos/butler/butler-2.jpg',
-      alt: 'The Butler — kitchen',
+      alt: 'The Butler — front exterior at dusk',
     },
     heroPhoto: {
       src: '/photos/butler/butler-2.jpg',
-      alt: 'The Butler — kitchen',
+      alt: 'The Butler — front exterior at dusk',
     },
     gallery: [
-      { src: '/photos/butler/butler-2.jpg', alt: 'The Butler — kitchen',                    caption: 'Vaulted-ceiling kitchen with waterfall island' },
+      { src: '/photos/butler/butler-2.jpg', alt: 'The Butler — front exterior',                caption: 'Front exterior at dusk' },
       { src: '/photos/butler/butler-1.jpg', alt: 'The Butler — front exterior',             caption: 'Front exterior' },
       { src: '/photos/butler/butler-3.jpg', alt: 'The Butler — basement lounge',         caption: 'Finished basement wet bar' },
       { src: '/photos/butler/butler-4.jpg', alt: 'The Butler — main kitchen',            caption: 'Open-concept main kitchen' },
