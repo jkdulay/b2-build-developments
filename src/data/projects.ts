@@ -43,10 +43,10 @@ export const projects: Project[] = [
       alt: 'The Brooklyn — front exterior at dusk',
     },
     heroPhoto: {
-      src: '/photos/brooklyn/front-exterior-dusk.jpg',
-      alt: 'The Brooklyn — front exterior at dusk',
+      src: '/photos/brooklyn/front-exterior-day.jpg',
+      alt: 'The Brooklyn — front exterior',
     },
-    videoUrl: '/photos/butler/butler-hero.mp4', // 4K MP4 from Butler source — only video asset on hand
+    // videoUrl omitted 2026-10-09 — hero now uses heroPhoto image everywhere
     gallery: [
       { src: '/photos/brooklyn/front-exterior-day.jpg',  alt: 'The Brooklyn — front exterior',           caption: 'Front exterior' },
       { src: '/photos/brooklyn/location-aerial.jpg',      alt: 'The Brooklyn — adjacent golf course',     caption: 'Adjacent to Winston Heights Golf Course' },
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       { src: '/photos/brooklyn/living-fireplace.jpg',     alt: 'The Brooklyn — living room fireplace',    caption: 'Linear gas fireplace with custom built-ins' },
       { src: '/photos/brooklyn/kitchen-staircase.jpg',    alt: 'The Brooklyn — kitchen with staircase',   caption: 'Architectural staircase off the kitchen' },
       { src: '/photos/brooklyn/kitchen-cook-area.jpg',    alt: 'The Brooklyn — chef\'s kitchen',          caption: 'Sage green cabinetry, black marble hood' },
-      { src: '/photos/brooklyn/kitchen-island.jpg',       alt: 'The Brooklyn — kitchen island',           caption: 'Light oak island with waterfall counter' },
+      { src: '/photos/brooklyn/kitchen-island.jpg',       alt: 'The Brooklyn — gourmet chef\'s kitchen with 12-foot island', caption: 'Gourmet Chef’s Kitchen with an Expansive 12-Foot Island' },
       { src: '/photos/brooklyn/kitchen-arched.jpg',       alt: 'The Brooklyn — kitchen with arched windows', caption: 'Flowing into living with arched windows' },
       { src: '/photos/brooklyn/wine-cellar.jpg',          alt: 'The Brooklyn — glass wine display',       caption: 'Glass-enclosed wine display' },
       { src: '/photos/brooklyn/pantry.jpg',               alt: 'The Brooklyn — walk-in pantry',           caption: 'Walk-in pantry' },
@@ -101,10 +101,9 @@ export const projects: Project[] = [
       alt: 'Villa Castano — main exterior',
     },
     gallery: [
-      { src: '/photos/villa-castano/villa-castano-main.jpg',  alt: 'Villa Castano — main exterior', caption: 'Main exterior' },
-      { src: '/photos/villa-castano/villa-castano-dusk.jpg',  alt: 'Villa Castano — exterior at dusk', caption: 'Exterior at dusk' },
-      { src: '/photos/villa-castano/villa-castano-night.jpg', alt: 'Villa Castano — exterior at night', caption: 'Evening exterior' },
-      // Design concept mood boards from Raj/PJ
+      // Design concept mood boards from Raj/PJ (exterior photos removed 2026-10-09;
+      // new hero/card image currently points at villa-castano-main.jpg until a
+      // dedicated exterior photo is supplied).
       { src: '/photos/villa-castano/mood-kitchen.jpg',         alt: 'Villa Castano — kitchen concept',  caption: 'Kitchen concept — sage shaker with brass accents' },
       { src: '/photos/villa-castano/mood-interior-design.jpg', alt: 'Villa Castano — interior design',  caption: 'Interior design direction' },
       { src: '/photos/villa-castano/mood-lighting.jpg',        alt: 'Villa Castano — lighting selections', caption: 'Lighting selections' },
@@ -178,7 +177,7 @@ export const projects: Project[] = [
     category: 'Custom Build',
     badge: 'SOLD',
     tagline: 'LUXURY BUNGALOW · SOLD',
-    location: '36 Butler Crescent NW, Calgary',
+    location: 'Brentwood, Calgary AB',
     year: '2025',
     image: '/photos/butler/butler-2.jpg',
     cardPhoto: {
