@@ -179,18 +179,17 @@ export const projects: Project[] = [
     tagline: 'LUXURY BUNGALOW · SOLD',
     location: 'Brentwood, Calgary AB',
     year: '2025',
-    image: '/photos/butler/butler-2.jpg',
+    image: '/photos/butler/butler-1.jpg',
     cardPhoto: {
-      src: '/photos/butler/butler-2.jpg',
+      src: '/photos/butler/butler-1.jpg',
       alt: 'The Butler — front exterior at dusk',
     },
     heroPhoto: {
-      src: '/photos/butler/butler-2.jpg',
+      src: '/photos/butler/butler-1.jpg',
       alt: 'The Butler — front exterior at dusk',
     },
     gallery: [
-      { src: '/photos/butler/butler-2.jpg', alt: 'The Butler — front exterior',                caption: 'Front exterior at dusk' },
-      { src: '/photos/butler/butler-1.jpg', alt: 'The Butler — front exterior',             caption: 'Front exterior' },
+      { src: '/photos/butler/butler-2.jpg', alt: 'The Butler — front exterior at dusk',    caption: 'Front exterior at dusk' },
       { src: '/photos/butler/butler-3.jpg', alt: 'The Butler — basement lounge',         caption: 'Finished basement wet bar' },
       { src: '/photos/butler/butler-4.jpg', alt: 'The Butler — main kitchen',            caption: 'Open-concept main kitchen' },
       { src: '/photos/butler/butler-5.jpg', alt: 'The Butler — chef\'s kitchen',          caption: 'Chef\'s kitchen with arched alcove' },
